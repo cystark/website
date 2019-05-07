@@ -1,0 +1,75 @@
+@value desktop-large: 160px;
+@value desktop-medium: 100px;
+@value desktop-small: 60px;
+
+@value mobile-large: 100px;
+@value mobile-medium: 60px;
+@value mobile-small: 40px;
+
+@value gutter: 5%;
+
+@value site as bp-site from '../styles/breakpoints.css';
+
+.large {
+  padding-top: mobile-large;
+  padding-bottom: mobile-large;
+  padding-left: gutter;
+  padding-right: gutter;
+}
+
+.medium {
+  padding-top: mobile-medium;
+  padding-bottom: mobile-medium;
+  padding-left: gutter;
+  padding-right: gutter;
+}
+
+.mediumSmall {
+  padding-top: mobile-medium;
+  padding-bottom: mobile-small;
+  padding-left: gutter;
+  padding-right: gutter;
+}
+
+.smallMedium {
+  padding-top: mobile-small;
+  padding-bottom: mobile-medium;
+  padding-left: gutter;
+  padding-right: gutter;
+}
+
+.small {
+  padding-top: mobile-small;
+  padding-bottom: mobile-small;
+  padding-left: gutter;
+  padding-right: gutter;
+}
+
+@media bp-site {
+  .large {
+    padding-top: desktop-large;
+    padding-bottom: desktop-large;
+  }
+
+  .mediumSmall {
+    padding-top: desktop-medium;
+    padding-bottom: desktop-small;
+  }
+
+  .smallMedium {
+    padding-top: desktop-small;
+    padding-bottom: desktop-medium;
+    padding-left: gutter;
+    padding-right: gutter;
+  }
+
+  .medium {
+    padding-top: desktop-medium;
+    padding-bottom: desktop-medium;
+  }
+
+  .small {
+    padding-top: desktop-small;
+    padding-bottom: desktop-small;
+  }
+}

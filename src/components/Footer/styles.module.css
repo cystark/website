@@ -1,0 +1,15 @@
+@value colors: '../../styles/colors.css';
+@value black1, gray2 from colors;
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color:black1;
+  bottom: 0;
+  color: gray2;
+}
+
+.container-inner {
+  margin: 0 auto;
+  composes: small from '../../styles/padding.css';
+}

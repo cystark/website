@@ -1,0 +1,20 @@
+@value primary: #404850;
+@value primaryDark: #2c2e2f;
+
+@value secondary: #ba7f7f;
+@value secondaryDark: rgb(146, 92, 92);
+@value secondaryDarkAlt: rgb(135, 99, 99);
+
+@value tertiary: #b1c1d4;
+
+@value white1: #ffffff;
+@value white2: #fafafa;
+
+@value gray1: #dfdfdf;
+@value gray2: #d7d9da;
+@value gray3: #C4C4C4;
+@value gray4: #AAAAAA;
+
+@value black1: #111111;
+@value black2: #3c3c3c;
+@value black3: #555555;

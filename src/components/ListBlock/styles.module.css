@@ -1,0 +1,8 @@
+@value colors: '../../styles/colors.css';
+@value gray1, gray2, black2, gray3, tertiary from colors;
+@value desktop as bp-desktop from '../../styles/breakpoints.css';
+
+.container  {
+  width: 100%;
+  margin: 0 auto;
+}
