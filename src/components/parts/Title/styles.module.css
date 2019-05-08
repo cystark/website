@@ -1,0 +1,12 @@
+@value colors: '../../../styles/colors.css';
+@value gray2, black3 from colors;
+@value padding: '../../../styles/padding.css';
+@value gutter from padding;
+
+.title
+{
+  color: gray2;
+  border-bottom: 1px solid black3;
+  padding: 0 gutter gutter;
+  margin-bottom: 1.25rem;
+}

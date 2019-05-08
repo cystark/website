@@ -1,9 +1,9 @@
 ---
-title: "I strive to make beautful web applications"
+title: "I aspire to make beautiful web applications"
 page: "homepage"
 module: 1
 type: heading
-style: body
+padding: heading
 date: "Sun 31 Mar 13:09:05 2019"
 author: "Cameron Stark"
 ---

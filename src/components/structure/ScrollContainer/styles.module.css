@@ -1,0 +1,18 @@
+@value site as bp-site from '../../../styles/breakpoints.css';
+@value colors: '../../../styles/colors.css';
+@value primaryDark from colors;
+
+.container {
+  width: 100%;
+  left: 0;
+  right: 10%;
+  background: primaryDark;
+}
+
+@media bp-site {
+  .container {
+    position: absolute;
+    top: 100vh;
+    composes: flexCenterLeft from '../../../styles/flex.css';
+  }
+}

@@ -1,0 +1,38 @@
+@value colors: '../../../styles/colors.css';
+@value primary from colors;
+@value site as bp-site from '../../../styles/breakpoints.css';
+@value extrawide as bp-extrawide from '../../../styles/breakpoints.css';
+
+.container {
+  composes: gutterPadding from '../../../styles/padding.css'
+}
+.container-inner {
+  border: 20px solid primary;
+  margin: 0 auto;
+  max-width: 760px;
+  width: 100%;
+  min-width: 200px;
+}
+
+@media bp-site {
+  .container {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-inner {
+    max-width: 600px;
+  }
+}
+
+@media bp-extrawide {
+  .container-inner {
+    max-width: 700px;
+  }
+}
+

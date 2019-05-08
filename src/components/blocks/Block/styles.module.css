@@ -1,0 +1,10 @@
+@value padding: '../../../styles/padding.css';
+@value gutter from padding;
+
+.container {
+  width: 100%;
+}
+
+.horizontal-padding {
+  composes: gutterPadding from '../../../styles/padding.css';
+}

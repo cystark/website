@@ -1,0 +1,86 @@
+@value colors: '../../../styles/colors.css';
+@value gray3 from colors;
+
+@value padding: '../../../styles/padding.css';
+@value gutter from padding;
+
+@value desktop as bp-desktop from '../../../styles/breakpoints.css';
+@value desktopup as bp-desktopup from '../../../styles/breakpoints.css';
+
+.container  {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container p:last-of-type {
+  margin-bottom: 0;
+}
+
+.container table td:first-child
+{
+  color: gray3;
+}
+
+.container tr > td {
+  vertical-align: middle;
+  padding: gutter;
+}
+
+.container table {
+  margin: 0 auto;
+}
+@media bp-desktopup {
+  .inspiration table,
+  .inspiration thead,
+  .inspiration tbody,
+  .inspiration tr {
+    display: block; 
+  }
+
+  .inspiration tr > td:first-child { 
+    display: block; 
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+
+  .inspiration tr > td:empty { 
+    display:none;
+  }
+
+  .inspiration tr > td:nth-child(2) {
+    width: 32vw;
+  }
+
+  .inspiration tr > td:nth-child(3) {
+    width: 53vw;
+  }
+
+  .inspiration tr > td:nth-child(4) {
+    width: 10vw;
+    inspiration-align: right;
+  }
+}
+
+@media bp-desktop {
+  .container p,
+  .container table {
+    font-size: 1.1em;
+  }
+
+  .inspiration table td:first-child {
+    min-width: 8vw;
+  }
+
+  .inspiration tr > td:nth-child(2) {
+    min-width: 12vw;
+  }
+
+  .inspiration tr > td:nth-child(3) {
+    min-width: 12vw;
+  }
+
+  .inspiration tr > td:nth-child(4) {
+    min-width: 8vw;
+  }
+}
+

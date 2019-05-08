@@ -2,9 +2,10 @@ import { StaticQuery, graphql } from 'gatsby';
 import React from "react"
 import styles from './styles.module.css'
 
-import Loop from '../Loop'
-import LogoHero from "../LogoHero"
-import Illustration from '../Illustration'
+import LogoHero from "../parts/LogoHero"
+import Illustration from '../parts/Illustration'
+
+import Loop from './loop'
 
 const Layout = () => (
   <StaticQuery query={homepageData} render={data => (
@@ -31,9 +32,9 @@ const homepageData = graphql`
         node {
           frontmatter {
             title,
-            type,
             style,
-            align
+            padding,
+            type
           },
           html
         }

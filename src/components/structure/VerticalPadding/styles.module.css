@@ -1,0 +1,15 @@
+.heading {
+  composes: medium from '../../../styles/padding.css';
+}
+
+.pre-body {
+  composes: mediumSmall from '../../../styles/padding.css';
+}
+
+.body {
+  composes: small from '../../../styles/padding.css';
+}
+
+.post-body {
+  composes: smallMedium from '../../../styles/padding.css';
+}
