@@ -22,11 +22,11 @@
 }
 
 .dot1 {
-  fill: primaryDark;
+  fill: #5abb6e;
 }
 
 .dot2 {
-  fill: primaryDark;
+  fill: white;
 }
 
 @media bp-desktop {

@@ -14,6 +14,7 @@ const HeadingBlock: React.FunctionComponent<Props> = (props) => {
   const style = props.style ? 
     `${styles.container} ${styles[props.style]}` : 
     styles.container;
+
   const data = {...props, style}
 
   return (

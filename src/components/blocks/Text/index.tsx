@@ -14,7 +14,9 @@ const TextBlock: React.FunctionComponent<Props> = (props) => {
   const style = props.style ? 
     `${styles.container} ${styles[props.style]}` : 
     styles.container;
-  const data = {...props, style}
+
+  const html = props.html.replace(/●/g, '<span>*</span>'); 
+  const data = {...props, style, html}
 
   return (
     <Block {...data} htmlPadding={false} />

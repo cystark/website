@@ -1,16 +1,11 @@
 @value colors: '../../../styles/colors.css';
-@value gray3 from colors;
+@value white1, gray3, black3 from colors;
 
 @value padding: '../../../styles/padding.css';
 @value gutter from padding;
 
 @value desktop as bp-desktop from '../../../styles/breakpoints.css';
 @value desktopup as bp-desktopup from '../../../styles/breakpoints.css';
-
-.container  {
-  width: 100%;
-  margin: 0 auto;
-}
 
 .container p:last-of-type {
   margin-bottom: 0;
@@ -21,7 +16,18 @@
   color: gray3;
 }
 
-.container tr > td {
+.container strong {
+  padding: 5px 20px;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing:1px;
+  color: #efecec;
+  text-align: left;
+  display: block;
+  max-width: 180px;
+}
+
+.container tr > td:not(:first-child) { 
   vertical-align: middle;
   padding: gutter;
 }
@@ -29,35 +35,114 @@
 .container table {
   margin: 0 auto;
 }
+
+.container span {
+  margin: 0 2%;
+  vertical-align: middle;
+  font-size: 10px;
+  color: white1;
+
+}
+
+.container tr > td:first-child { 
+  vertical-align: middle;
+  padding: gutter 0;
+  border-right: solid 2px transparent;
+}
+
+.skills tr:first-child > td:first-child,
+.skills tr:nth-child(2) > td:first-child,
+.skills tr:nth-child(3) > td:first-child,
+.skills tr:nth-child(4) > td:first-child {
+  border-color: transparent #495b77;
+}
+
+.skills tr:nth-child(5) > td:first-child,
+.skills tr:nth-child(6) > td:first-child,
+.skills tr:nth-child(7) > td:first-child,
+.skills tr:nth-child(8) > td:first-child,
+.skills tr:nth-child(9) > td:first-child,
+.skills tr:nth-child(10) > td:first-child {
+  border-color: transparent #7989a0;
+}
+
+.skills tr:nth-child(11) > td:first-child,
+.skills tr:nth-child(12) > td:first-child {
+  border-color: transparent #b6c9e0;
+}
+
+.skills tr:nth-child(13) > td:first-child,
+.skills tr:nth-child(14) > td:first-child,
+.skills tr:nth-child(15) > td:first-child,
+.skills tr:nth-child(16) > td:first-child {
+  border-color: transparent #767d86;
+}
+
+.inspiration tr:first-child > td:first-child,
+.inspiration tr:nth-child(2) > td:first-child {
+  border-color: transparent #d27f7f;
+}
+
+.inspiration tr:nth-child(3) > td:first-child,
+.inspiration tr:nth-child(4) > td:first-child,
+.inspiration tr:nth-child(5) > td:first-child {
+  border-color: transparent #a56464;
+}
+
+.inspiration tr:nth-child(6) > td:first-child,
+.inspiration tr:nth-child(7) > td:first-child,
+.inspiration tr:nth-child(8) > td:first-child {
+  border-color: transparent #a56464;
+}
+
+.inspiration tr:nth-child(9) > td:first-child {
+  border-color: transparent #6b4c4c;
+}
+
+.inspiration tr:nth-child(10) > td:first-child {
+  border-color: transparent #ab7171;
+}
+.inspiration tr:nth-child(11) > td:first-child,
+.inspiration tr:nth-child(12) > td:first-child {
+  border-color: transparent #ab7171;
+}
+
+.inspiration tr:nth-child(13) > td:first-child,
+.inspiration tr:nth-child(14) > td:first-child,
+.inspiration tr:nth-child(15) > td:first-child,
+.inspiration tr:nth-child(16) > td:first-child {
+  border-color: transparent #767d86;
+}
+
 @media bp-desktopup {
-  .inspiration table,
-  .inspiration thead,
-  .inspiration tbody,
-  .inspiration tr {
+  .container table,
+  .container thead,
+  .container tbody,
+  .container tr {
     display: block; 
   }
 
-  .inspiration tr > td:first-child { 
+  .container tr > td:first-child { 
     display: block; 
     padding-top: 20px;
     padding-bottom: 25px;
   }
 
-  .inspiration tr > td:empty { 
+  .container tr > td:empty { 
     display:none;
   }
 
-  .inspiration tr > td:nth-child(2) {
+  .container tr > td:nth-child(2) {
     width: 32vw;
   }
 
-  .inspiration tr > td:nth-child(3) {
+  .container tr > td:nth-child(3) {
     width: 53vw;
   }
 
-  .inspiration tr > td:nth-child(4) {
+  .container tr > td:nth-child(4) {
     width: 10vw;
-    inspiration-align: right;
+    container-align: right;
   }
 }
 
@@ -67,19 +152,19 @@
     font-size: 1.1em;
   }
 
-  .inspiration table td:first-child {
-    min-width: 8vw;
+  .container table td:first-child {
+    width: 130px;
   }
 
-  .inspiration tr > td:nth-child(2) {
+  .container tr > td:nth-child(2) {
     min-width: 12vw;
   }
 
-  .inspiration tr > td:nth-child(3) {
+  .container tr > td:nth-child(3) {
     min-width: 12vw;
   }
 
-  .inspiration tr > td:nth-child(4) {
+  .container tr > td:nth-child(4) {
     min-width: 8vw;
   }
 }

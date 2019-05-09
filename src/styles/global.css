@@ -1,6 +1,7 @@
 @value colors: './colors.css';
 @value primary, white1, tertiary, gray2, black2, gray3 from colors;
 @value transition as gtransition from './animation.css';
+
 @value desktop as bp-desktop from '../styles/breakpoints.css';
 @value wide as bp-wide from '../styles/breakpoints.css';
 @value site as bp-site from '../styles/breakpoints.css';
@@ -49,13 +50,6 @@ html, body {
 a {
   color: gray3;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: gtransition;
-}
-
-a:hover {
-  color: tertiary;
-  border-color: tertiary;
 }
 
 hr {

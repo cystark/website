@@ -17,8 +17,12 @@ const Block: React.FunctionComponent<Props> = ({ title, style, padding, html, co
 
   const htmlStyling = htmlPadding ? styles.horizontalPadding : styles.container
 
+  const blockStyle = style ? 
+    `${styles.container} ${style}` : 
+    styles.container;
+
   return (
-    <div className={style}>
+    <div className={blockStyle}>
       <VerticalPadding padding={padding}>
         <ContainerWrap>
           <Title>{title}</Title>

@@ -5,8 +5,9 @@
 
 .title
 {
-  color: gray2;
-  border-bottom: 1px solid black3;
-  padding: 0 gutter gutter;
-  margin-bottom: 1.25rem;
+  color: #d7d9da;
+  /* border-bottom: 1px solid #555555; */
+  padding: 0 1.5rem 1.5rem;
+  margin-bottom: 0.25rem;
+  /* padding-left: 52px; */
 }

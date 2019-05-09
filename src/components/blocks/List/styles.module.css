@@ -1,15 +1,39 @@
-.container  {
-  width: 100%;
-  margin: 0 auto;
-}
+@value colors: '../../../styles/colors.css';
+@value black4, tertiary from colors;
+@value transition as gtransition from '../../../styles/animation.css';
 
 .container ul {
   width: 100%;
   list-style-type: none;
+  padding-top: 30px;
 }
 
 .container ul li {
   display: inline-block;
-  padding: 10px;
+  padding-right: 38px;
   width: 33%;
+  text-align: left;
+}
+
+.container ul li svg {
+  transition: gtransition;
+  fill: black4;
+}
+
+.container ul li a:hover svg {
+  fill: tertiary;
+}
+
+/* Icons */
+
+.twenty4 svg {
+  max-width: 50px;
+}
+
+.linktree svg {
+  max-width: 200px;
+}
+
+.highlight {
+  background-color: red;
 }

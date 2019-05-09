@@ -4,8 +4,6 @@
 @value desktop as bp-desktop from '../../../styles/breakpoints.css';
 
 .container  {
-  width: 100%;
-  margin: 0 auto;
   background-color: black2;
 }
 
