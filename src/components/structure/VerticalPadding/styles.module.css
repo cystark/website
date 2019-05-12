@@ -1,18 +1,6 @@
 .heading {
   composes: medium from '../../../styles/padding.css';
-  padding-left: 20%;
   position: relative;
-}
-
-.heading:after {
-  content: '';
-  position: absolute;
-  top: 30px;
-  left: 128px;
-  bottom: 35px;
-  width: 2px;
-  display: block;
-  background-color: gray;
 }
 
 .pre-body {

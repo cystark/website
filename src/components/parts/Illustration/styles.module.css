@@ -9,8 +9,8 @@
 .container-inner {
   border: 20px solid primary;
   margin: 0 auto;
+  width: 85%;
   max-width: 760px;
-  width: 100%;
   min-width: 200px;
 }
 

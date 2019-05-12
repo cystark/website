@@ -3,7 +3,8 @@
 @value desktop as bp-desktop from '../../../styles/breakpoints.css';
 
 .container {
-  width:90%;
+  width: 50%;
+  min-width: 200px;
   max-width: 300px;
   margin: 0 auto;
   padding-bottom: 10px;
