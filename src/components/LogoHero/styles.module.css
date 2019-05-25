@@ -1,0 +1,41 @@
+@value colors: '../../styles/colors.css';
+@value primaryDark, secondary, tertiary from colors;
+@value desktop as bp-desktop from '../../styles/breakpoints.css';
+
+.container {
+  width: 70%;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.text {
+  padding-top: 20px;
+}
+
+.text p {
+  color: primaryDark;
+}
+
+.heading {
+  fill: primaryDark;
+}
+
+.dot1 {
+  fill: rgb(123, 157, 191);
+}
+
+.dot2 {
+  fill: white;
+}
+
+
+@media bp-desktop {
+  .container {
+    max-width: 400px;
+  }
+  .text p {
+    font-size: 1.25em;
+  }
+}

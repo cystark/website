@@ -1,0 +1,12 @@
+@value desktop as bp-desktop from '../../styles/breakpoints.css';
+
+.container p:last-of-type {
+  margin-bottom: 0;
+}
+
+@media bp-desktop {
+  .container p
+  {
+    font-size: 1.3em;
+  }
+}

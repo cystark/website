@@ -4,18 +4,23 @@ module.exports = {
     description: 'Web Developers from Melbourne Australia',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-external-links",
+            resolve: 'gatsby-remark-external-links',
             options: {
-              target: "_blank",
-              rel: "nofollow"
-            }
-          }
-        ]
+              target: '_blank',
+              rel: 'nofollow',
+            },
+          },
+          'gatsby-remark-grid-tables',
+          'gatsby-remark-copy-linked-files',
+        ],
       },
     },
     {
@@ -25,8 +30,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options:
         {
-          name: 'homepage-data',
-          path: `${__dirname}/src/homepage-data/`,
+          name: 'data',
+          path: `${__dirname}/src/data/`,
         },
     },
     {
@@ -52,8 +57,5 @@ module.exports = {
         ],
       },
     },
-    // {resolve:'gatsby-plugin-react-helmet'},
-    // {resolve:'gatsby-plugin-sitemap'},
-    // {resolve:'gatsby-plugin-offline'},
   ],
 };

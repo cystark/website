@@ -1,0 +1,103 @@
+@value colors: '../../styles/colors.css';
+@value white1, tertiary, gray3, black3 from colors;
+@value transition as gtransition from '../../styles/animation.css';
+
+@value padding: '../../styles/padding.css';
+@value gutter from padding;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container p a,
+.container table a
+{
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: gtransition;
+}
+
+/**
+ * Padding
+ **/
+
+.container {
+  composes: gutterPadding from '../../styles/padding.css';
+}
+
+/**
+ * Theme
+ **/
+
+.dark {
+  background-color: black;
+}
+
+.dark td {
+  border-color: #9fb8ce;
+  color: white;
+}
+
+
+/* .dark div > div> div> div:nth-child(1) td { */
+/*   border-color: #ba807f; */
+/* } */
+
+td:not([rowspan="1"]) {
+  color: white;
+}
+
+td[rowspan="1"] {
+  /* background-color: #9fb8ce; */
+}
+
+.gray {
+  background-color: black3;
+}
+
+.darkPink {
+  background-color: #9fb8ce;
+}
+
+.darkPink td {
+  border-color: white;
+  color: white;
+}
+
+.darkPink td a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.darkPink td:hover em {
+ font-style: italic;
+}
+
+.primary {
+  background-color: #ece0c5;
+}
+
+.primary p {
+  color: gray;
+}
+
+.wheat {
+  color: rgb(123, 157, 191);
+  background-color: wheat;
+}
+
+.wheat a {
+  color: white;
+  transition: gtransition;
+}
+
+.wheat a:hover {
+  font-style: italic;
+  letter-spacing: 1px;
+}

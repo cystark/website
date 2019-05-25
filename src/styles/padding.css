@@ -6,7 +6,7 @@
 @value mobile-medium: 60px;
 @value mobile-small: 20px;
 
-@value gutter: 1.5rem;
+@value gutter: 2rem;
 
 @value site as bp-site from '../styles/breakpoints.css';
 

@@ -1,0 +1,29 @@
+@value colors: '../../styles/colors.css';
+@value black1, tertiary from colors;
+@value transition as gtransition from '../../styles/animation.css';
+
+.container  {
+  background-color: #2C2C2C;
+}
+
+.container ul {
+  width: 100%;
+  list-style-type: none;
+  padding-top: 30px;
+}
+
+.container ul li {
+  display: inline-block;
+  padding-right: 38px;
+  text-align: left;
+}
+
+.container ul li img {
+  transition: gtransition;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.container ul li a:hover img {
+  opacity: 0.9;
+}

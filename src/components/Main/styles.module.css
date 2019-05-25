@@ -1,0 +1,17 @@
+@value colors: '../../styles/colors.css';
+@value black1, gray3 from colors;
+
+.container {
+  width: 100%;
+  position: relative;
+  composes: gutterPadding from '../../styles/padding.css';
+}
+
+.container p {
+  color: gray3;
+}
+
+.section {
+  width: 100%;
+  margin: 0 auto;
+}

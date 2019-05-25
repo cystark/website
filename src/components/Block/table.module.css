@@ -1,0 +1,98 @@
+@value colors: '../../styles/colors.css';
+@value white1, gray3, black4 from colors;
+
+@value animation: '../../styles/animation.css';
+@value gtransition from animation;
+
+@value desktop as bp-desktop from '../../styles/breakpoints.css';
+@value desktopup as bp-desktopup from '../../styles/breakpoints.css';
+
+/**
+ * Container
+ **/
+
+.container tr > td { 
+  vertical-align: top;
+}
+
+.container p {
+  font-size: 14px;
+}
+
+.container p:last-of-type {
+  margin-bottom: 0;
+}
+
+.container td {
+  position: relative;
+  border-style: solid;
+}
+
+/**
+ * Border styling
+ **/
+
+.container table td:not([rowspan="1"])
+{
+  border-right-width: 1px;
+}
+
+.container table td[rowspan="1"] {
+  height: 120px;
+}
+
+.container table tr:last-child td:first-child {
+  border-bottom-width: 1px;
+}
+
+.container table td:not(:empty)
+{
+  border-top-width: 1px;
+  padding: 3%;
+  min-width: 100px;
+}
+
+.container table td:last-child {
+  border-right-width: 1px;
+}
+
+.container table td:not(:first-child) {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+/**
+ * Content
+ * */
+
+.content div > div {
+  margin: 0 auto;
+  padding: 10px 0 0 10px;
+}
+
+.container td:not([rowspan="1"]) {
+  width: 20px;
+}
+
+@media bp-desktopup {
+  .container table,
+  .container thead,
+  .container tbody,
+  .container tr {
+    display: block; 
+  }
+
+  .container tr > td:first-child { 
+    display: block; 
+  }
+
+  .container tr > td:empty { 
+    display:none;
+  }
+
+  .container tr > td:nth-child(4) {
+    container-align: right;
+  }
+
+}
+

@@ -1,0 +1,12 @@
+@value colors: '../../styles/colors.css';
+@value white1 from colors;
+@value padding: '../../styles/padding.css';
+@value gutter from padding;
+
+.title
+{
+  color: white1;
+  padding: 0 0 gutter;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}

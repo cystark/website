@@ -1,0 +1,18 @@
+.container {
+  margin: 0 auto;
+  max-width: 32.5em;
+}
+
+.large {
+  margin: 0 auto;
+  max-width: 62em;
+}
+
+.large > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.large > div > div {
+  width: 50%;
+}

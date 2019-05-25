@@ -1,0 +1,14 @@
+---
+title: "I aspire to make beautiful web applications"
+page: "homepage"
+module: 1
+type: heading
+theme: primary
+padding: heading
+date: "Sun 31 Mar 13:09:05 2019"
+author: "Cameron Stark"
+---
+
+Hi I am Cam. Web Developer with broad skill set from frontend to backend and some experience with devops.
+Passionate about web development, frontend, automation and analytics.
+I strive to make clean, efficient and high quality code.
