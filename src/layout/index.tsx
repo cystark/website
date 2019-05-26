@@ -19,7 +19,10 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
         const siteMeta = data.site.siteMetadata
         return (
           <div className={styles.container}>
-            <Header menuLinks={siteMeta.menuLinks} siteTitle={siteMeta.title} />
+            <Header
+              menuLinks={siteMeta.menuLinks ? siteMeta.menuLinks : []}
+              siteTitle={siteMeta.title}
+            />
             <SEO />
             {location.pathname == "/" && (
               <Hero description={siteMeta.description} />
@@ -39,10 +42,6 @@ const homepageData = graphql`
       siteMetadata {
         title
         description
-        menuLinks {
-          name
-          link
-        }
       }
     }
   }

@@ -7,12 +7,12 @@ import inlineIcon from "../../utils/inlineIcon"
 import socials from "../../../config/socials"
 
 interface DataProps {
-  menuLinks: any
+  menuLinks?: any
   siteTitle: any
 }
 
 const Header: React.StatelessComponent<DataProps> = ({
-  menuLinks,
+  menuLinks = [],
   siteTitle,
 }) => {
   return (
