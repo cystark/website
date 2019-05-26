@@ -1,13 +1,12 @@
 ---
-title: "Some companies I worked with"
-page: "homepage"
-module: 3
-type: list
-theme: dark
-padding: heading
-
-date: "Sun 31 Mar 13:09:05 2019"
 author: "Cameron Stark"
+date: "Sun 31 Mar 13:09:05 2019"
+module: 3
+padding: medium
+page: "homepage"
+theme: black
+title: "Some companies I worked with"
+type: list
 ---
 
 - [![Linktree](linktree.svg)](http://linktr.ee)

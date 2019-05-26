@@ -1,29 +1,34 @@
-@value colors: '../../styles/colors.css';
-@value primary from colors;
 @value site as bp-site from '../../styles/breakpoints.css';
 @value extrawide as bp-extrawide from '../../styles/breakpoints.css';
 
 .container {
-  composes: gutterPadding from '../../styles/padding.css'
+  composes: gutterPadding from "../../styles/padding.css";
 }
 .container-inner {
   margin: 0 auto;
   width: 85%;
-  max-width: 760px;
-  min-width: 200px;
 }
 
 @media bp-site {
   .container {
-    position: absolute;
-    background-color: #ece0c5;
+    position: relative;
+    display: flex;
+    align-self: flex-end;
     width: 40%;
     height: 100%;
-    right: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
+    padding-bottom: 60px;
+    background-color: var(--primary-theme-background);
     align-items: center;
+    justify-content: center;
+  }
+  .container::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 100px;
+    top: calc(0px - var(--header-height));
+    right: 0;
+    background-color: var(--primary-theme-background);
   }
   .container-inner {
     max-width: 600px;
@@ -36,4 +41,3 @@
     max-width: 700px;
   }
 }
-

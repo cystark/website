@@ -2,12 +2,16 @@ import React from "react"
 import styles from "./styles.module.css"
 import AspectRatio from "../AspectRatio"
 
-const LogoHero = () => (
+interface DataProps {
+  description: string
+}
+
+const LogoHero: React.StatelessComponent<DataProps> = ({ description }) => (
   <div className={`${styles.container} ${styles.hexagon}`}>
     <AspectRatio ratio={285 / 500}>{SVGImage}</AspectRatio>
     <div className={styles.text}>
       <hr />
-      <p>Web Developer from Melbourne, Australia</p>
+      <p>{description}</p>
     </div>
   </div>
 )

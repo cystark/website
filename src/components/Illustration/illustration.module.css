@@ -1,0 +1,110 @@
+@value site as bp-site from '../../styles/breakpoints.css';
+@value extrawide as bp-extrawide from '../../styles/breakpoints.css';
+
+.bg {
+  fill: #d7d9da;
+}
+
+@keyframes rightToLeftBottomForward {
+  0% {
+    transform: translate(816px, -1389px);
+  }
+  100% {
+    transform: translate(100px, -1489px);
+  }
+}
+
+@keyframes rightToLeftBottomBack {
+  0% {
+    transform: translate(920px, -1389px);
+  }
+  100% {
+    transform: translate(816px, -1389px);
+  }
+}
+
+.white-cloud-forward {
+  fill: white;
+  animation: rightToLeftBottomForward 26s forwards linear;
+}
+
+.white-cloud-back {
+  fill: white;
+  animation: rightToLeftBottomBack 4s forwards linear;
+}
+
+@keyframes rightToLeftCenterForward {
+  0% {
+    transform: translate(512px, -1476px);
+  }
+  100% {
+    transform: translate(-50px, -1476px);
+  }
+}
+
+@keyframes rightToLeftCenterBack {
+  0% {
+    transform: translate(920px, -1476px);
+  }
+  100% {
+    transform: translate(512px, -1476px);
+  }
+}
+
+.gray-cloud-forward {
+  fill: #8f8c8c;
+  animation: rightToLeftCenterForward 10s forwards linear;
+}
+
+.gray-cloud-back {
+  fill: #8f8c8c;
+  animation: rightToLeftCenterBack 6s forwards linear;
+}
+
+@keyframes rightToLeftTopForward {
+  0% {
+    transform: translate(712px, -1571px);
+  }
+  100% {
+    transform: translate(-50px, -1571px);
+  }
+}
+
+@keyframes rightToLeftTopBack {
+  0% {
+    transform: translate(920px, -1571px);
+  }
+  100% {
+    transform: translate(712px, -1571px);
+  }
+}
+
+.red-cloud-forward {
+  fill: #876363;
+  animation: rightToLeftTopForward 17s forwards linear;
+}
+
+.red-cloud-back {
+  fill: #876363;
+  animation: rightToLeftTopBack 8s forwards linear;
+}
+
+.wall {
+  fill: white;
+}
+
+.floor {
+  fill: #ece0c5;
+}
+
+.blinds {
+  fill: #decea9;
+}
+
+/*  */
+/* @media bp-site { */
+/* } */
+/*  */
+/* @media bp-extrawide { */
+/* } */
+/*  */

@@ -1,7 +1,6 @@
 import { StaticQuery, graphql } from "gatsby"
 import React from "react"
 import styles from "./styles.module.css"
-import ScrollContainer from "../ScrollContainer"
 import Block from "../Block"
 
 interface SectionProps {
@@ -22,27 +21,31 @@ const Main: React.StatelessComponent = () => {
   return (
     <StaticQuery
       query={homepageData}
-      render={data => (
-        <ScrollContainer>
-          {data.allMarkdownRemark.edges.map((section: SectionProps) => {
-            const { html } = section.node
-            const { title, padding, type, theme, container } = section.node.frontmatter
-            key = key + 1
-            return (
-              <div className={styles.section} key={key}>
-                <Block
-                  container={container}
-                  type={type}
-                  theme={theme}
-                  title={title}
-                  padding={padding}
-                  html={html}
-                />
-              </div>
-            )
-          })}
-        </ScrollContainer>
-      )}
+      render={data =>
+        data.allMarkdownRemark.edges.map((section: SectionProps) => {
+          const { html } = section.node
+          const {
+            title,
+            padding,
+            type,
+            theme,
+            container,
+          } = section.node.frontmatter
+          key = key + 1
+          return (
+            <div className={styles.section} key={key}>
+              <Block
+                container={container}
+                type={type}
+                theme={theme}
+                title={title}
+                padding={padding}
+                html={html}
+              />
+            </div>
+          )
+        })
+      }
     />
   )
 }

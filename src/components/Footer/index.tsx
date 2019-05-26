@@ -5,8 +5,8 @@ import ContainerWrap from "../ContainerWrap"
 
 const Footer = () => (
   <div className={styles.container}>
-    <VerticalPadding padding={"body"}>
-      <ContainerWrap>
+    <VerticalPadding>
+      <ContainerWrap container={"wide"}>
         <p className={styles.text}>
           Designed and Developed By Cam Y Stark 2019
         </p>

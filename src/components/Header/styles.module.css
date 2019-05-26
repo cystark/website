@@ -1,14 +1,72 @@
-@value colors: '../../styles/colors.css';
-@value black1, gray3 from colors;
+@value gtransition from '../../styles/animation.css';
 
-.container {
-  position: relative;
-  width: 100%;
-  background-color:black1;
-  bottom: 0;
-  composes: gutterPadding from '../../styles/padding.css';
+:root {
+  --header-height: 90px;
 }
 
-.container p {
-  color: gray3;
+.container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--heading-background-color);
+  composes: gutterPadding from "../../styles/padding.css";
+  z-index: 100;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+  color: var(--header-color);
+  border-bottom: 1px solid var(--header-border-bottom-color);
+  padding: 20px 0;
+}
+
+.nav {
+  justify-self: flex-end;
+  list-style: none;
+  margin-left: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo {
+  font-family: "Oswald";
+  font-size: 1.8em;
+  color: var(--header-logo-color);
+  transition: gtransition;
+}
+
+.logo:hover {
+  color: var(--header-logo-hover-secondary-color);
+}
+
+.nav-item {
+  margin-left: 20px;
+  line-height: 1;
+  font-size: 1.2em;
+}
+
+.nav-link {
+  color: var(--header-link-color);
+  transition: gtransition;
+}
+
+.nav-item svg {
+  width: 30px;
+  fill: var(--header-icon-color);
+  color: var(--header-icon-secondary-color);
+  transition: gtransition;
+}
+
+.nav-link:hover {
+  color: var(--header-link-hover-color);
+}
+
+.nav-link:hover svg {
+  fill: var(--header-icon-hover-color);
 }

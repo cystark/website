@@ -1,3 +1,5 @@
+@value site as bp-site from '../../styles/breakpoints.css';
+
 .container {
   margin: 0 auto;
   max-width: 32.5em;
@@ -8,11 +10,21 @@
   max-width: 62em;
 }
 
-.large > div {
-  display: flex;
-  flex-wrap: wrap;
+.wide {
+  margin: 0 auto;
+  max-width: 100%;
 }
 
-.large > div > div {
-  width: 50%;
+@media bp-site {
+  .large > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+      gap: 20px 80px;
+    }
+  }
 }

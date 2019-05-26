@@ -1,17 +1,11 @@
-@value colors: '../../styles/colors.css';
-@value white1, gray3, black4 from colors;
-
-@value animation: '../../styles/animation.css';
-@value gtransition from animation;
-
 @value desktop as bp-desktop from '../../styles/breakpoints.css';
-@value desktopup as bp-desktopup from '../../styles/breakpoints.css';
+@value site as bp-site from '../../styles/breakpoints.css';
 
 /**
  * Container
  **/
 
-.container tr > td { 
+.container tr > td {
   vertical-align: top;
 }
 
@@ -32,8 +26,7 @@
  * Border styling
  **/
 
-.container table td:not([rowspan="1"])
-{
+.container table td:not([rowspan="1"]) {
   border-right-width: 1px;
 }
 
@@ -45,11 +38,10 @@
   border-bottom-width: 1px;
 }
 
-.container table td:not(:empty)
-{
+.container table td:not(:empty) {
   border-top-width: 1px;
   padding: 3%;
-  min-width: 100px;
+  min-width: 20px;
 }
 
 .container table td:last-child {
@@ -65,34 +57,33 @@
  * Content
  * */
 
-.content div > div {
-  margin: 0 auto;
-  padding: 10px 0 0 10px;
+.content ul li {
+  display: inline-block;
+}
+
+.content ul li:not(:first-child)::before {
+  content: " | ";
+  color: var(--blue-theme-border-secondary-color);
+}
+
+.container tr td[rowspan="1"]:nth-child(4) {
+  width: 80px;
 }
 
 .container td:not([rowspan="1"]) {
-  width: 20px;
+  width: 100px;
 }
 
-@media bp-desktopup {
-  .container table,
-  .container thead,
-  .container tbody,
-  .container tr {
-    display: block; 
+@media bp-site {
+  .content div {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .container tr > td:first-child { 
-    display: block; 
+  .content div > div {
+    width: 100%;
+    max-width: 450px;
   }
-
-  .container tr > td:empty { 
-    display:none;
-  }
-
-  .container tr > td:nth-child(4) {
-    container-align: right;
-  }
-
 }
-

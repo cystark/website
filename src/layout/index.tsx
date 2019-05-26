@@ -1,23 +1,50 @@
+import { StaticQuery, graphql } from "gatsby"
 import React from "react"
 import styles from "./styles.module.css"
 
-import LogoHero from "../components/LogoHero"
-import Illustration from "../components/Illustration"
+import Header from "../components/Header"
+import SEO from "../components/SEO"
+import Hero from "../components/Hero"
+import Footer from "../components/Footer"
 
-interface DataProps {
-  location: string
+interface Props {
+  location: any
 }
 
-const HomePage: React.StatelessComponent<DataProps> = ({ children }) => (
-  <div className={styles.container}>
-    <div className={styles.scrollBlock}>
-      <div className={styles.hero}>
-        <LogoHero />
-        <Illustration />
-      </div>
-      {children}
-    </div>
-  </div>
-)
+const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
+  return (
+    <StaticQuery
+      query={homepageData}
+      render={data => {
+        const siteMeta = data.site.siteMetadata
+        return (
+          <div className={styles.container}>
+            <Header menuLinks={siteMeta.menuLinks} siteTitle={siteMeta.title} />
+            <SEO />
+            {location.pathname == "/" && (
+              <Hero description={siteMeta.description} />
+            )}
+            {children}
+            <Footer />
+          </div>
+        )
+      }}
+    />
+  )
+}
 
+const homepageData = graphql`
+  query SiteTitleQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        menuLinks {
+          name
+          link
+        }
+      }
+    }
+  }
+`
 export default HomePage

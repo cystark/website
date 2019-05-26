@@ -1,9 +1,7 @@
-@value colors: '../../styles/colors.css';
-@value black1, tertiary from colors;
-@value transition as gtransition from '../../styles/animation.css';
+@value gtransition from '../../styles/animation.css';
 
-.container  {
-  background-color: #2C2C2C;
+.container {
+  text-align: center;
 }
 
 .container ul {
@@ -20,10 +18,10 @@
 
 .container ul li img {
   transition: gtransition;
-  opacity: 0.6;
+  opacity: 0.9;
   margin-bottom: 30px;
 }
 
 .container ul li a:hover img {
-  opacity: 0.9;
+  opacity: 1;
 }

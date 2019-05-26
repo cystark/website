@@ -1,13 +1,13 @@
 ---
-title: "Technical Skills"
-page: "homepage"
-module: 4
-type: table
-padding: heading
-theme: dark
+author: "Cameron Stark"
 container: large
 date: "Sun 31 Mar 13:09:05 2019"
-author: "Cameron Stark"
+module: 4
+padding: medium
+page: "homepage"
+theme: dark
+title: "Technical Skills"
+type: table
 ---
 
 +----------+-----------------------+--------------------------------+

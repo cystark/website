@@ -1,9 +1,4 @@
-@value colors: '../../styles/colors.css';
-@value white1, tertiary, gray3, black3 from colors;
-@value transition as gtransition from '../../styles/animation.css';
-
-@value padding: '../../styles/padding.css';
-@value gutter from padding;
+@value gtransition from '../../styles/animation.css';
 
 .container {
   width: 100%;
@@ -11,93 +6,157 @@
 }
 
 .container p a,
-.container table a
-{
+.container table a {
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: gtransition;
 }
 
-/**
- * Padding
- **/
-
 .container {
-  composes: gutterPadding from '../../styles/padding.css';
+  composes: gutterPadding from "../../styles/padding.css";
 }
 
 /**
  * Theme
+ * Options
+ * - primary
+ * - wheat
+ * - blue
+ * - dark
+ * - black
  **/
 
-.dark {
-  background-color: black;
-}
-
-.dark td {
-  border-color: #9fb8ce;
-  color: white;
-}
-
-
-/* .dark div > div> div> div:nth-child(1) td { */
-/*   border-color: #ba807f; */
-/* } */
-
-td:not([rowspan="1"]) {
-  color: white;
-}
-
-td[rowspan="1"] {
-  /* background-color: #9fb8ce; */
-}
-
-.gray {
-  background-color: black3;
-}
-
-.darkPink {
-  background-color: #9fb8ce;
-}
-
-.darkPink td {
-  border-color: white;
-  color: white;
-}
-
-.darkPink td a {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.darkPink td:hover em {
- font-style: italic;
-}
+/** Primary **/
 
 .primary {
-  background-color: #ece0c5;
+  background-color: var(--primary-theme-background);
+}
+
+.primary h3 {
+  color: var(--primary-theme-title-color);
 }
 
 .primary p {
-  color: gray;
+  color: var(--primary-theme-color);
 }
 
+.primary td {
+  color: var(--primary-theme-table-color);
+  border-color: var(--primary-theme-border-color);
+}
+
+.primary a {
+  color: var(--primary-theme-link-color);
+}
+
+.primary a:hover {
+  color: var(--primary-theme-link-hover-color);
+}
+
+/** Wheat **/
+
 .wheat {
-  color: rgb(123, 157, 191);
-  background-color: wheat;
+  background-color: var(--wheat-theme-background);
+}
+
+.wheat h3 {
+  color: var(--wheat-theme-title-color);
+}
+
+.wheat p {
+  color: var(--wheat-theme-color);
+}
+
+.wheat td {
+  color: var(--wheat-theme-table-color);
+  border-color: var(--wheat-theme-border-color);
 }
 
 .wheat a {
-  color: white;
-  transition: gtransition;
+  color: var(--wheat-theme-link-color);
 }
 
 .wheat a:hover {
-  font-style: italic;
-  letter-spacing: 1px;
+  color: var(--wheat-theme-link-hover-color);
+}
+
+/** Blue **/
+
+.blue {
+  background-color: var(--blue-theme-background);
+}
+
+.blue h3 {
+  color: var(--blue-theme-title-color);
+}
+
+.blue p {
+  color: var(--blue-theme-color);
+}
+
+.blue td {
+  color: var(--blue-theme-table-color);
+  border-color: var(--blue-theme-border-color);
+}
+
+.blue a {
+  color: var(--blue-theme-link-color);
+}
+
+.blue a:hover {
+  color: var(--blue-theme-link-hover-color);
+}
+
+/** Dark **/
+
+.dark {
+  background-color: var(--dark-theme-background);
+}
+
+.dark h3 {
+  color: var(--dark-theme-title-color);
+}
+
+.dark p {
+  color: var(--dark-theme-color);
+}
+
+.dark td {
+  color: var(--dark-theme-table-color);
+  border-color: var(--dark-theme-border-color);
+}
+
+.dark a {
+  color: var(--dark-theme-link-color);
+}
+
+.dark a:hover {
+  color: var(--dark-theme-link-hover-color);
+}
+
+/** Black **/
+
+.black {
+  background-color: var(--black-theme-background);
+}
+
+.black h3 {
+  color: var(--black-theme-title-color);
+}
+
+.black p {
+  color: var(--black-theme-color);
+}
+
+.black td {
+  color: var(--black-theme-table-color);
+  border-color: var(--black-theme-border-color);
+}
+
+.black a {
+  color: var(--black-theme-link-color);
+}
+
+.black a:hover {
+  color: var(--black-theme-link-hover-color);
 }

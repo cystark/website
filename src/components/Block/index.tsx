@@ -26,7 +26,7 @@ const Block: React.FunctionComponent<Props> = ({
   html,
 }) => {
   let blockStyle = styles.container
-  let blockContent = ''
+  let blockContent = ""
 
   switch (type) {
     case "heading":
@@ -51,7 +51,7 @@ const Block: React.FunctionComponent<Props> = ({
   return (
     <div className={blockStyle}>
       <VerticalPadding padding={padding}>
-        <ContainerWrap>
+        <ContainerWrap container="wide">
           <Title>{title}</Title>
         </ContainerWrap>
         <ContainerWrap className={blockContent} container={container}>

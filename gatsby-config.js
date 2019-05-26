@@ -1,12 +1,24 @@
+const config = require('./config/site');
+
 module.exports = {
   siteMetadata: {
-    title: 'Cam Yuji Stark',
-    description: 'Web Developers from Melbourne Australia',
+    ...config,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-postcss',
+    'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: config.title,
+        short_name: config.shortName,
+        description: config.description,
+        start_url: config.pathPrefix,
+        display: 'standalone',
+        icon: config.favicon,
+      },
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -23,6 +35,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-typescript',
     },
@@ -53,6 +66,10 @@ module.exports = {
           {
             family: 'Lato',
             variants: ['300'],
+          },
+          {
+            family: 'Cabin Condensed',
+            variants: ['regular'],
           },
         ],
       },

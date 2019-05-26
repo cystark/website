@@ -2,14 +2,15 @@ import React from "react"
 import styles from "./styles.module.css"
 
 interface Props {
-  padding: string
+  padding?: string
 }
 
 const VerticalPadding: React.FunctionComponent<Props> = ({
   padding,
   children,
 }) => {
-  return <div className={styles[padding]}>{children}</div>
+  const paddingStyle = padding || "small"
+  return <div className={styles[paddingStyle]}>{children}</div>
 }
 
 export default VerticalPadding
