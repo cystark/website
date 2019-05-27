@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-import styles from "./styles.module.css"
-import VerticalPadding from "../VerticalPadding"
+import styles from "./styles.module.scss"
 import ContainerWrap from "../ContainerWrap"
 import inlineIcon from "../../utils/inlineIcon"
 import socials from "../../../config/socials"

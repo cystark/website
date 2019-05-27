@@ -23,15 +23,12 @@
 }
 
 .nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-self: flex-end;
   list-style: none;
   margin-left: 0;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
 }
 
 .logo {
@@ -39,34 +36,30 @@
   font-size: 1.8em;
   color: var(--header-logo-color);
   transition: gtransition;
-}
-
-.logo:hover {
-  color: var(--header-logo-hover-secondary-color);
+  &:hover {
+    color: var(--header-logo-hover-secondary-color);
+  }
 }
 
 .nav-item {
   margin-left: 20px;
   line-height: 1;
   font-size: 1.2em;
+  & svg {
+    width: 30px;
+    fill: var(--header-icon-color);
+    color: var(--header-icon-secondary-color);
+    transition: gtransition;
+  }
 }
 
 .nav-link {
   color: var(--header-link-color);
   transition: gtransition;
-}
-
-.nav-item svg {
-  width: 30px;
-  fill: var(--header-icon-color);
-  color: var(--header-icon-secondary-color);
-  transition: gtransition;
-}
-
-.nav-link:hover {
-  color: var(--header-link-hover-color);
-}
-
-.nav-link:hover svg {
-  fill: var(--header-icon-hover-color);
+  &:hover {
+    color: var(--header-link-hover-color);
+    svg {
+      fill: var(--header-icon-hover-color);
+    }
+  }
 }
