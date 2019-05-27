@@ -10,21 +10,23 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest --verbose ./src"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "@rebass/grid": "^6.0.0",
+    "@types/react-test-renderer": "^16.8.1",
+    "babel-preset-gatsby-package": "^0.1.4",
     "gatsby": "^2.3.3",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.1.1",
-    "gatsby-plugin-postcss": "^2.0.7",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.2",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sitemap": "^2.1.0",
     "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-remark-copy-linked-files": "^2.0.12",
     "gatsby-remark-external-links": "^0.0.4",
-    "jest": "^24.7.1",
+    "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -32,7 +34,12 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@types/jest": "^24.0.13",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-preset-gatsby": "^0.1.11",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -43,9 +50,14 @@
     "gatsby-remark-grid-tables": "0.0.3",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-remark": "^2.3.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
     "postcss-preset-env": "^6.6.0",
     "prettier": "^1.17.1",
-    "remark-grid-tables": "^1.6.1"
+    "react-test-renderer": "^16.8.6",
+    "remark-grid-tables": "^1.6.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
   },
   "repository": {
     "type": "git",
