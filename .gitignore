@@ -70,3 +70,7 @@ yarn-error.log
 
 # Draft
 src/draft
+
+# Jest
+__snapshots__
+
