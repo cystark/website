@@ -19,42 +19,8 @@ module.exports = {
         icon: config.favicon,
       },
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-              rel: 'nofollow',
-            },
-          },
-          'gatsby-remark-grid-tables',
-          'gatsby-remark-copy-linked-files',
-        ],
-      },
-    },
-    'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-plugin-typescript',
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options:
-        {
-          name: 'data',
-          path: `${__dirname}/src/data/`,
-        },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options:
-        {
-          name: 'pages',
-          path: `${__dirname}/src/pages/`,
-        },
-    },
+    'gatsby-plugin-sass',
+    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-prefetch-google-fonts',
       options: {
@@ -73,6 +39,38 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow',
+            },
+          },
+          'gatsby-remark-grid-tables',
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options:
+        {
+          name: 'data',
+          path: `${__dirname}/src/data/`,
+        },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options:
+        {
+          name: 'pages',
+          path: `${__dirname}/src/pages/`,
+        },
     },
   ],
 };
