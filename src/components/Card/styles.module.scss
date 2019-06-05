@@ -1,0 +1,23 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
+@value columnHalfGutter from '../Columns/styles.module.scss';
+
+.container {
+  border: 1px solid black;
+  padding: 2em;
+  position: relative;
+  padding-right: calc(60px + 2em);
+  &::after {
+    content: "";
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #ece0c5;
+  }
+  h4 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+  }
+}

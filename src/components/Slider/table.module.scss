@@ -1,0 +1,75 @@
+@value desktop as bp-desktop from '../../styles/breakpoints.scss';
+@value site as bp-site from '../../styles/breakpoints.scss';
+
+/**
+ * Container
+ **/
+
+.container tr > td {
+  vertical-align: top;
+}
+
+.container p {
+  font-size: 14px;
+}
+
+.container p:last-of-type {
+  margin-bottom: 0;
+}
+
+.container td {
+  position: relative;
+  border-style: solid;
+}
+
+/**
+ * Border styling
+ **/
+
+.container table td:not([rowspan="1"]) {
+  border-right-width: 1px;
+}
+
+.container table td[rowspan="1"] {
+  height: 120px;
+}
+
+.container table tr:last-child td:first-child {
+  border-bottom-width: 1px;
+}
+
+.container table td:not(:empty) {
+  border-top-width: 1px;
+  padding: 3%;
+  min-width: 20px;
+}
+
+.container table td:last-child {
+  border-right-width: 1px;
+}
+
+.container table td:not(:first-child) {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+/**
+ * Content
+ * */
+
+.content ul li {
+  display: inline-block;
+}
+
+.content ul li:not(:first-child)::before {
+  content: " | ";
+  color: var(--blue-theme-border-secondary-color);
+}
+
+.container tr td[rowspan="1"]:nth-child(4) {
+  width: 80px;
+}
+
+.container td:not([rowspan="1"]) {
+  width: 100px;
+}

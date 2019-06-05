@@ -3,27 +3,33 @@ import Title from "../Title"
 import VerticalPadding from "../VerticalPadding"
 import ContainerWrap from "../ContainerWrap"
 
-import styles from "./styles.module.css"
-import tableStyle from "./table.module.css"
-import headingStyle from "./heading.module.css"
-import listStyle from "./list.module.css"
+import styles from "./styles.module.scss"
+import tableStyle from "./table.module.scss"
+import headingStyle from "./heading.module.scss"
+import listStyle from "./list.module.scss"
+import columnsStyle from "./columns.module.scss"
 
 interface Props {
   type: string
-  title: string
+  title?: string
+  textAlign: string
   theme: string
   padding: string
-  container: string
-  html: string
+  container?: string
+  columns: string
+  html?: string
 }
 
 const Block: React.FunctionComponent<Props> = ({
   type,
   title,
+  textAlign,
   theme,
   padding,
   container,
+  columns,
   html,
+  children,
 }) => {
   let blockStyle = styles.container
   let blockContent = ""
@@ -42,20 +48,24 @@ const Block: React.FunctionComponent<Props> = ({
       blockContent = listStyle.content
       break
     default:
-      blockStyle = `${blockStyle}`
+      blockStyle = blockStyle
   }
 
   //Addition of theme
   blockStyle = `${blockStyle} ${styles[theme]}`
 
+  //Addition of columns
+  blockContent = `${blockContent} ${columnsStyle[columns]}`
+
   return (
     <div className={blockStyle}>
       <VerticalPadding padding={padding}>
-        <ContainerWrap container="wide">
-          <Title>{title}</Title>
-        </ContainerWrap>
-        <ContainerWrap className={blockContent} container={container}>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+        <ContainerWrap
+          className={blockContent}
+          container={container}
+          textAlign={textAlign}
+        >
+          {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : children}
         </ContainerWrap>
       </VerticalPadding>
     </div>

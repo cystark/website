@@ -1,2 +1,2 @@
-import './src/styles/colors.css';
-import './src/styles/global.css';
+require("./src/styles/colors.scss")
+require("./src/styles/global.scss")

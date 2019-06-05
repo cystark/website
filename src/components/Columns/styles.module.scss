@@ -1,0 +1,58 @@
+@value columnGutter: 3.0rem;
+@value columnHalfGutter: 1.5rem;
+
+@value site as bp-site from '../../styles/breakpoints.scss';
+
+.container {
+  margin-left: calc(-1 * columnHalfGutter);
+  margin-right: calc(-1 * columnHalfGutter);
+  margin-top: calc(-1 * columnHalfGutter);
+}
+
+.container:last-child {
+  margin-bottom: calc(-1 * columnHalfGutter);
+}
+
+.container:not(:last-child) {
+  margin-bottom: calc(columnGutter - columnHalfGutter);
+}
+
+.is-centered {
+  justify-content: center;
+}
+
+.direction-row {
+  flex-direction: row;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.is-gapless {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+.is-gapless > div {
+  margin: 0;
+  padding: 0 !important;
+}
+
+.is-gapless:not(:last-child) {
+  margin-bottom: columnGutter;
+}
+
+.is-gapless:last-child {
+  margin-bottom: 0;
+}
+
+@media bp-site {
+  .container {
+    display: flex;
+  }
+  .multi {
+    flex-wrap: wrap;
+  }
+}

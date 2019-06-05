@@ -1,38 +1,16 @@
 import React from "react"
-import illustration from "./illustration.module.css"
+import styles from "./styles.module.css"
 
-class Clouds extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      grayScene: true,
-      whiteScene: true,
-      redScene: true,
-    }
-  }
+const fingers () => {
 
-  componentWillMount() {
-    this.setState({ load: true })
-  }
 
-  componentWillUnMount() {
-    clearInterval(this.interval)
-  }
 
-  animationEndGray() {
-    this.setState({ grayScene: !this.state.grayScene })
-  }
+  return (
+  
+  )
+}
 
-  animationEndRed() {
-    this.setState({ redScene: !this.state.redScene })
-  }
-
-  animationEndWhite() {
-    this.setState({ whiteScene: !this.state.whiteScene })
-  }
-
-  render() {
-    return (
+  const SVGAElement = (
       <>
         <use
           xlinkHref="#path67_fill"
@@ -86,7 +64,5 @@ class Clouds extends React.Component {
         />
       </>
     )
-  }
-}
 
 export default Clouds

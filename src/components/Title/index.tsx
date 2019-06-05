@@ -1,12 +1,25 @@
 import React from "react"
-import styles from "./styles.module.css"
+import styles from "./styles.module.scss"
+import textStyle from "../../styles/text.module.scss"
+import { textAlignOptions } from "../../type/options"
 
 interface Props {
+  className?: string
   children: string
 }
 
-const TextBlock: React.FunctionComponent<Props> = ({ children }) => {
-  return <h3 className={styles.title}>{children}</h3>
+const Title: React.FunctionComponent<Props & textAlignOptions> = ({
+  children,
+  className,
+  textAlign = "left",
+}) => {
+  const styleOptions = [
+    className && className,
+    styles.title,
+    textAlign && textStyle[textAlign],
+  ]
+  console.log(styleOptions)
+  return <h3 className={styleOptions.join(" ")}>{children}</h3>
 }
 
-export default TextBlock
+export default Title

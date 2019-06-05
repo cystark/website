@@ -4,10 +4,11 @@ import styles from "./styles.module.scss"
 import ContainerWrap from "../ContainerWrap"
 import inlineIcon from "../../utils/inlineIcon"
 import socials from "../../../config/socials"
+import { Logo } from "../../inline-icons"
 
 interface DataProps {
   menuLinks?: any
-  siteTitle: any
+  soteTitle: any
 }
 
 const Header: React.StatelessComponent<DataProps> = ({
@@ -17,9 +18,10 @@ const Header: React.StatelessComponent<DataProps> = ({
   return (
     <nav className={styles.container}>
       <ContainerWrap className={styles.content} container={"wide"}>
-        <a href="/" className={styles.logo}>
-          {siteTitle}
-        </a>
+        <h3 className={styles.logo}>
+          <Logo />
+          <a href="/">{siteTitle}</a>
+        </h3>
         <ul className={styles.nav}>
           {menuLinks.map((link: any) => (
             <li className={styles.navItem} key={link.link}>

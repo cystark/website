@@ -1,76 +1,71 @@
-const config = require('./config/site');
+const config = require("./config/site")
 
 module.exports = {
   siteMetadata: {
     ...config,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-sitemap',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-offline",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-sharp",
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: config.title,
         short_name: config.shortName,
         description: config.description,
         start_url: config.pathPrefix,
-        display: 'standalone',
+        display: "standalone",
         icon: config.favicon,
       },
     },
-    'gatsby-plugin-sass',
-    'gatsby-plugin-typescript',
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          {
-            family: 'Oswald',
-            subsets: ['latin'],
-          },
-          {
-            family: 'Lato',
-            variants: ['300'],
-          },
-          {
-            family: 'Cabin Condensed',
-            variants: ['regular'],
-          },
-        ],
+        google: {
+          families: ["Oswald", "Lato", "Cabin Condensed"],
+        },
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-images",
             options: {
-              target: '_blank',
-              rel: 'nofollow',
+              maxWidth: 970,
             },
           },
-          'gatsby-remark-grid-tables',
-          'gatsby-remark-copy-linked-files',
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow",
+            },
+          },
+          "gatsby-remark-grid-tables",
+          "gatsby-remark-copy-linked-files",
         ],
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options:
-        {
-          name: 'data',
-          path: `${__dirname}/src/data/`,
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/, // See below to configure properly
         },
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options:
-        {
-          name: 'pages',
-          path: `${__dirname}/src/pages/`,
-        },
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages/`,
+      },
     },
   ],
-};
+}

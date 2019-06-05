@@ -1,5 +1,5 @@
 import React from "react"
-import illustration from "./illustration.module.css"
+import styles from "./styles.module.scss"
 
 interface IProps {
   props: any
@@ -50,8 +50,8 @@ class Clouds extends React.Component {
         <path
           className={
             this.state.whiteScene
-              ? illustration.whiteCloudForward
-              : illustration.whiteCloudBack
+              ? styles.whiteCloudForward
+              : styles.whiteCloudBack
           }
           onAnimationEnd={() => this.animationEndWhite()}
           fillRule="evenodd"
@@ -60,8 +60,8 @@ class Clouds extends React.Component {
         <path
           className={
             this.state.grayScene
-              ? illustration.grayCloudForward
-              : illustration.grayCloudBack
+              ? styles.grayCloudForward
+              : styles.grayCloudBack
           }
           onAnimationEnd={() => this.animationEndGray()}
           transform="translate(703 -1476)"
@@ -71,8 +71,8 @@ class Clouds extends React.Component {
         <path
           className={
             this.state.redScene
-              ? illustration.redCloudForward
-              : illustration.redCloudBack
+              ? styles.redCloudForward
+              : styles.redCloudBack
           }
           onAnimationEnd={() => this.animationEndRed()}
           transform="translate(394 -1571)"

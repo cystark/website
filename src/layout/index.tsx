@@ -1,10 +1,10 @@
 import { StaticQuery, graphql } from "gatsby"
 import React from "react"
-import styles from "./styles.module.css"
+import styles from "./styles.module.scss"
 
 import Header from "../components/Header"
-import SEO from "../components/SEO"
 import Hero from "../components/Hero"
+import Contact from "../components/Contact"
 import Footer from "../components/Footer"
 
 interface Props {
@@ -23,11 +23,14 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
               menuLinks={siteMeta.menuLinks ? siteMeta.menuLinks : []}
               siteTitle={siteMeta.title}
             />
-            <SEO />
-            {location.pathname == "/" && (
-              <Hero description={siteMeta.description} />
-            )}
+            <Hero
+              location={location}
+              title={siteMeta.title}
+              description={siteMeta.description}
+              path={location.pathname}
+            />
             {children}
+            <Contact />
             <Footer />
           </div>
         )
@@ -42,6 +45,10 @@ const homepageData = graphql`
       siteMetadata {
         title
         description
+        menuLinks {
+          link
+          name
+        }
       }
     }
   }

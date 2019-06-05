@@ -1,0 +1,20 @@
+@value padding: '../../styles/padding.module.scss';
+@value gutter from padding;
+
+.title {
+  font-family: "Oswald";
+  font-size: 1.8em;
+  line-height: 1.8em;
+  display: inline-flex;
+  align-self: center;
+  svg {
+    margin-right: 18px;
+  }
+  a {
+    color: var(--header-logo-color);
+    transition: gtransition;
+    &:hover {
+      color: var(--header-logo-hover-secondary-color);
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import React from "react"
-import { Github, LinkedIn } from "../assets/inline-icons"
+import { Logo, Github, LinkedIn } from "../inline-icons"
 
 const inlineIcon = (name: string) => {
-  if (name == "github") {
+  if (name == "logo") {
+    return <Logo />
+  } else if (name == "github") {
     return <Github />
   } else if (name == "linkedin") {
     return <LinkedIn />

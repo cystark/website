@@ -1,0 +1,22 @@
+@value gtransition from '../../styles/animation.scss';
+
+.container {
+  ul {
+    width: 100%;
+    list-style-type: none;
+    > li {
+      display: inline-block;
+      padding-right: 38px;
+      padding-bottom: 20px;
+      text-align: left;
+      > a:hover img {
+        opacity: 1;
+      }
+      > img {
+        transition: gtransition;
+        opacity: 0.9;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

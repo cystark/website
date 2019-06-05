@@ -1,0 +1,11 @@
+.large {
+  composes: large from "../../styles/padding.module.scss";
+}
+
+.medium {
+  composes: medium from "../../styles/padding.module.scss";
+}
+
+.small {
+  composes: small from "../../styles/padding.module.scss";
+}

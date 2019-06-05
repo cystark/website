@@ -1,0 +1,35 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
+
+.mobile-center {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-vertical {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.mobile-horizontal {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+@media bp-site {
+  .vertical {
+    justify-content: unset;
+    align-items: center;
+  }
+
+  .horizontal {
+    align-items: unset;
+    justify-content: center;
+  }
+}

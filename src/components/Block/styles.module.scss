@@ -1,0 +1,135 @@
+@value gtransition from '../../styles/animation.scss';
+@value site as bp-site from '../../styles/breakpoints.scss';
+
+.container {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  composes: gutterPadding from "../../styles/padding.module.scss";
+  p a,
+  table a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: gtransition;
+  }
+}
+
+/**
+ * Theme
+ * Options
+ * - primary
+ * - wheat
+ * - blue
+ * - dark
+ * - black
+ **/
+
+/** Primary **/
+
+.primary {
+  background-color: var(--primary-theme-background);
+  h3 {
+    color: var(--primary-theme-title-color);
+  }
+  p {
+    color: var(--primary-theme-color);
+  }
+  td {
+    color: var(--primary-theme-table-color);
+    border-color: var(--primary-theme-border-color);
+  }
+  a {
+    color: var(--primary-theme-link-color);
+  }
+  a:hover {
+    color: var(--primary-theme-link-hover-color);
+  }
+}
+
+/** Wheat **/
+
+.wheat {
+  background-color: var(--wheat-theme-background);
+  h3 {
+    color: var(--wheat-theme-title-color);
+  }
+  p {
+    color: var(--wheat-theme-color);
+  }
+  td {
+    color: var(--wheat-theme-table-color);
+    border-color: var(--wheat-theme-border-color);
+  }
+  a {
+    color: var(--wheat-theme-link-color);
+  }
+  a:hover {
+    color: var(--wheat-theme-link-hover-color);
+  }
+}
+
+/** Blue **/
+
+.blue {
+  background-color: var(--blue-theme-background);
+  h3 {
+    color: var(--blue-theme-title-color);
+  }
+  p {
+    color: var(--blue-theme-color);
+  }
+  td {
+    color: var(--blue-theme-table-color);
+    border-color: var(--blue-theme-border-color);
+  }
+  a {
+    color: var(--blue-theme-link-color);
+  }
+  a:hover {
+    color: var(--blue-theme-link-hover-color);
+  }
+}
+
+/** Dark **/
+
+.dark {
+  background-color: var(--dark-theme-background);
+  h3 {
+    color: var(--dark-theme-title-color);
+  }
+  p {
+    color: var(--dark-theme-color);
+  }
+  td {
+    color: var(--dark-theme-table-color);
+    border-color: var(--dark-theme-border-color);
+  }
+  a {
+    color: var(--dark-theme-link-color);
+  }
+  a:hover {
+    color: var(--dark-theme-link-hover-color);
+  }
+}
+
+/** Black **/
+
+.black {
+  background-color: var(--black-theme-background);
+  h3 {
+    color: var(--black-theme-title-color);
+  }
+  p {
+    color: var(--black-theme-color);
+  }
+  td {
+    color: var(--black-theme-table-color);
+    border-color: var(--black-theme-border-color);
+  }
+  a {
+    color: var(--black-theme-link-color);
+  }
+  a:hover {
+    color: var(--black-theme-link-hover-color);
+  }
+}

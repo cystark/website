@@ -1,0 +1,171 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
+@value extrawide as bp-extrawide from '../../styles/breakpoints.scss';
+
+.bg {
+  fill: #d7d9da;
+}
+
+.wall {
+  fill: white;
+}
+
+.floor {
+  fill: #ece0c5;
+}
+
+.blinds {
+  fill: #decea9;
+}
+
+.illustration {
+  opacity: 0;
+}
+
+.guy {
+  opacity: 0;
+}
+
+.chair {
+  opacity: 0;
+}
+
+.stuff {
+  opacity: 0;
+}
+
+.dog {
+  opacity: 0;
+}
+
+.coffee {
+  opacity: 0;
+}
+
+/** Clouds **/
+
+$avgDistance: 500;
+
+/** RedClouds **/
+
+$fill: #ffffff;
+
+$start: 600;
+$velocity: 20;
+$y: -1571;
+
+$distanceForward: $avgDistance + ($start - $avgDistance);
+$secondsForward: round($distanceForward / $velocity);
+
+$distanceBack: $avgDistance - ($start - $avgDistance);
+$secondsBack: round($distanceBack / $velocity);
+
+@keyframes rightToLeftTopForward {
+  0% {
+    transform: translate(#{$start}px, #{$y}px);
+  }
+  100% {
+    transform: translate(#{$start - $distanceForward}px, #{$y}px);
+  }
+}
+
+@keyframes rightToLeftTopBack {
+  0% {
+    transform: translate(#{$start + $distanceBack}px, #{$y}px);
+  }
+  100% {
+    transform: translate(#{$start}px, #{$y}px);
+  }
+}
+
+.red-cloud-forward {
+  fill: $fill;
+  animation: rightToLeftTopForward #{$secondsForward}s forwards linear;
+}
+
+.red-cloud-back {
+  fill: $fill;
+  animation: rightToLeftTopBack #{$secondsBack}s forwards linear;
+}
+
+/** GrayClouds **/
+
+$fill: #bfbfbf;
+
+$start: 400;
+$velocity: 30;
+$y: -1476;
+
+$distanceForward: $avgDistance + ($start - $avgDistance);
+$secondsForward: round($distanceForward / $velocity);
+
+$distanceBack: $avgDistance - ($start - $avgDistance);
+$secondsBack: round($distanceBack / $velocity);
+
+@keyframes rightToLeftCenterForward {
+  0% {
+    transform: translate(#{$start}px, #{$y}px);
+  }
+  100% {
+    transform: translate(#{$start - $distanceForward}px, #{$y}px);
+  }
+}
+
+@keyframes rightToLeftCenterBack {
+  0% {
+    transform: translate(#{$start + $distanceBack}px, #{$y}px);
+  }
+  100% {
+    transform: translate(#{$start}px, #{$y}px);
+  }
+}
+
+.gray-cloud-forward {
+  fill: $fill;
+  animation: rightToLeftCenterForward #{$secondsForward}s forwards linear;
+}
+
+.gray-cloud-back {
+  fill: $fill;
+  animation: rightToLeftCenterBack #{$secondsBack}s forwards linear;
+}
+/** WhiteClouds **/
+
+$fill: #fafafa;
+
+$start: 900;
+$velocity: 40;
+$y: -1389;
+
+$distanceForward: $avgDistance + ($start - $avgDistance);
+$secondsForward: round($distanceForward / $velocity);
+
+$distanceBack: $avgDistance - ($start - $avgDistance);
+$secondsBack: round($distanceBack / $velocity);
+
+@keyframes rightToLeftBottomForward {
+  0% {
+    transform: translate(#{$start}px, #{$y}px);
+  }
+  100% {
+    transform: translate(#{$start - $distanceForward}px, #{$y}px);
+  }
+}
+
+@keyframes rightToLeftBottomBack {
+  0% {
+    transform: translate(#{$start + $distanceBack}px, #{$y}px);
+  }
+  100% {
+    transform: translate(#{$start}px, #{$y}px);
+  }
+}
+
+.white-cloud-forward {
+  fill: $fill;
+  animation: rightToLeftBottomForward #{$secondsForward}s forwards linear;
+}
+
+.white-cloud-back {
+  fill: $fill;
+  animation: rightToLeftBottomBack #{$secondsBack}s forwards linear;
+}

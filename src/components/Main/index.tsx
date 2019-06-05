@@ -1,14 +1,16 @@
 import { StaticQuery, graphql } from "gatsby"
 import React from "react"
-import styles from "./styles.module.css"
 import Block from "../Block"
+import styles from "./styles.module.scss"
 
 interface SectionProps {
   node: {
     html: string
     frontmatter: {
       title: string
+      textAlign: string
       container: string
+      columns: string
       padding: string
       type: string
       theme: string
@@ -26,10 +28,12 @@ const Main: React.StatelessComponent = () => {
           const { html } = section.node
           const {
             title,
-            padding,
-            type,
-            theme,
+            columns,
             container,
+            padding,
+            theme,
+            textAlign,
+            type,
           } = section.node.frontmatter
           key = key + 1
           return (
@@ -39,7 +43,9 @@ const Main: React.StatelessComponent = () => {
                 type={type}
                 theme={theme}
                 title={title}
+                textAlign={textAlign}
                 padding={padding}
+                columns={columns}
                 html={html}
               />
             </div>
@@ -56,16 +62,18 @@ const homepageData = graphql`
   query {
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___module] }
-      filter: { frontmatter: { page: { eq: "homepage" } } }
+      filter: { frontmatter: { path: { eq: "/" } } }
     ) {
       edges {
         node {
           frontmatter {
             title
-            padding
+            textAlign
+            columns
             container
-            type
+            padding
             theme
+            type
           }
           html
         }

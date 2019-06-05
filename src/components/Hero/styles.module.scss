@@ -1,0 +1,63 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
+@value extrawide as bp-extrawide from '../../styles/breakpoints.scss';
+
+.homepage {
+  width: 100%;
+  padding-top: 30px;
+  @media bp-site {
+    padding-top: 0;
+    display: flex;
+    height: calc(100vh - 200px);
+    min-height: 500px;
+    flex-wrap: wrap;
+  }
+}
+
+.other {
+  width: 100%;
+  padding-top: 30px;
+  @media bp-site {
+    padding-top: 0;
+  }
+}
+
+.container-illustration-wrap {
+  margin: 0 auto;
+  width: 85%;
+  @media bp-site {
+    position: relative;
+    display: flex;
+    align-self: flex-end;
+    width: 100%;
+    height: calc(100vh - var(--header-height) - 100px);
+    padding-bottom: 60px;
+    background-color: var(--illustration-background);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.container-illustration {
+  max-width: 600px;
+  margin: 0 auto;
+  @media bp-site {
+    width: 100%;
+    > div {
+      transform: translateX(-44%);
+    }
+  }
+  @media bp-extrawide {
+    max-width: 700px;
+  }
+}
+
+.container-logo {
+  padding-bottom: 10px;
+  @media bp-site {
+    max-width: 600px;
+    p {
+      font-size: 1.2em;
+    }
+  }
+}

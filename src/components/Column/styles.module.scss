@@ -1,0 +1,68 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
+@value columnHalfGutter from '../Columns/styles.module.scss';
+
+.align-offset-left {
+  @media bp-site {
+    margin-left: 10%;
+  }
+}
+
+.container {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: columnHalfGutter;
+}
+
+.mobile-full {
+  width: 100%;
+}
+
+.mobile-half {
+  width: 50%;
+  display: inline-block;
+}
+
+.is-centering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media bp-site {
+  .desktop-sidebar {
+    width: 200px;
+    flex: none;
+  }
+
+  .desktop-full {
+    width: 100%;
+    flex: none;
+  }
+
+  .desktop-two-thirds {
+    width: 66.66%;
+    flex: none;
+  }
+
+  .desktop-half {
+    width: 50%;
+    flex: none;
+  }
+
+  .desktop-two-fifths {
+    width: 40%;
+    flex: none;
+  }
+
+  .desktop-one-third {
+    width: 33.33%;
+    flex: none;
+  }
+
+  .desktop-one-quater {
+    width: 25%;
+    flex: none;
+  }
+}
