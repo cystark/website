@@ -5,7 +5,9 @@ import styles from "./styles.module.scss"
 import Header from "../components/Header"
 import Hero from "../components/Hero"
 import Contact from "../components/Contact"
+import socialLinks from "../../config/socials"
 import Footer from "../components/Footer"
+import SiteData from "../context/SiteData"
 
 interface Props {
   location: any
@@ -16,22 +18,23 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
     <StaticQuery
       query={homepageData}
       render={data => {
-        const siteMeta = data.site.siteMetadata
+        const siteMetadata = data.site.siteMetadata
+        const siteContext = {
+          title: siteMetadata.title,
+          description: siteMetadata.description,
+          menuLinks: siteMetadata.menuLinks ? siteMetadata.menuLinks : [],
+          socialLinks,
+          location,
+        }
         return (
           <div className={styles.container}>
-            <Header
-              menuLinks={siteMeta.menuLinks ? siteMeta.menuLinks : []}
-              siteTitle={siteMeta.title}
-            />
-            <Hero
-              location={location}
-              title={siteMeta.title}
-              description={siteMeta.description}
-              path={location.pathname}
-            />
-            {children}
-            <Contact />
-            <Footer />
+            <SiteData.Provider value={siteContext}>
+              <Header />
+              <Hero />
+              {children}
+              <Contact />
+              <Footer />
+            </SiteData.Provider>
           </div>
         )
       }}
