@@ -58,14 +58,13 @@ const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
               </Title>
               <hr />
               <p>
-                Currently renovating my town house with Kelly, from ripping out
-                the dry walls to putting in new floors. Stepping into unfamiliar
-                territory but enjoying the many lessons along the way.
+                Currently renovating an old town house in Melbourne with my
+                partner Kelly. We have ripped out dry walls, put in new floors
+                and now looking to demolish a chimney!
               </p>
               <p>
-                I am looking for some projects at the moment, so if you are
-                interested in collaborating please email me{" "}
-                <a href="mailto:cam@cystark.com.au">here</a>.
+                Lots of fun and great learnings jumping head first into unknown
+                'home builder' territory.
               </p>
             </Column>
           </Columns>
