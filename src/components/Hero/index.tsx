@@ -10,6 +10,7 @@ import Columns from "../Columns"
 import Column from "../Column"
 import Center from "../Center"
 import CTA from "../CTA"
+import SiteData from "../../context/SiteData"
 
 const highlights = [
   {
@@ -27,7 +28,6 @@ const highlights = [
 ]
 
 interface Props {
-  description: string
   path?: string
 }
 
@@ -47,37 +47,43 @@ class Hero extends React.Component {
   }
 
   render() {
-    const { path, description } = this.props
     return (
-      <ContainerWrap>
-        <Columns>
-          <Column align="offsetLeft">
-            {path == "/" && (
-              <Center type="vertical">
-                <div className={styles.containerLogo}>
-                  <LogoHeroWithImageWrap ratio={285 / 500} ref={this.logoRef} />
-                  <hr />
-                  <p>{description}</p>
-                  <CTA>
-                    June 1. Currently looking for job oppotunities. Contact me
-                    through Linkedin or Email
-                  </CTA>
+      <SiteData.Consumer>
+        {({ description, location }) => (
+          <ContainerWrap>
+            <Columns>
+              <Column align="offsetLeft">
+                {location.pathname == "/" && (
+                  <Center type="vertical">
+                    <div className={styles.containerLogo}>
+                      <LogoHeroWithImageWrap
+                        ratio={285 / 500}
+                        ref={this.logoRef}
+                      />
+                      <hr />
+                      <p>{description}</p>
+                      <CTA>
+                        June 1. Currently looking for job oppotunities. Contact
+                        me through Linkedin or Email
+                      </CTA>
+                    </div>
+                  </Center>
+                )}
+              </Column>
+              <Column desktop="oneThird" theme="wheat">
+                <div className={styles.containerIllustrationWrap}>
+                  <div className={styles.containerIllustration}>
+                    <IllustrationWithImageWrap
+                      ratio={542 / 600}
+                      ref={this.illustrationRef}
+                    />
+                  </div>
                 </div>
-              </Center>
-            )}
-          </Column>
-          <Column desktop="oneThird" theme="wheat">
-            <div className={styles.containerIllustrationWrap}>
-              <div className={styles.containerIllustration}>
-                <IllustrationWithImageWrap
-                  ratio={542 / 600}
-                  ref={this.illustrationRef}
-                />
-              </div>
-            </div>
-          </Column>
-        </Columns>
-      </ContainerWrap>
+              </Column>
+            </Columns>
+          </ContainerWrap>
+        )}
+      </SiteData.Consumer>
     )
   }
 }
