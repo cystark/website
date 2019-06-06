@@ -1,0 +1,33 @@
+@value gtransition from '../../styles/animation.scss';
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: flex-end;
+  list-style: none;
+  margin-left: 0;
+
+  &-item {
+    margin-left: 20px;
+    line-height: 1;
+    font-size: 1.2em;
+    & svg {
+      width: 30px;
+      fill: var(--header-icon-color);
+      color: var(--header-icon-secondary-color);
+      transition: gtransition;
+    }
+  }
+
+  &-link {
+    color: var(--header-link-color);
+    transition: gtransition;
+    &:hover {
+      color: var(--header-link-hover-color);
+      svg {
+        fill: var(--header-icon-hover-color);
+      }
+    }
+  }
+}
