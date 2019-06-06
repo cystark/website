@@ -54,10 +54,15 @@
 
 .container-logo {
   padding-bottom: 10px;
+  max-width: 400px;
   @media bp-site {
-    max-width: 600px;
+    //Need to balance out with the CTA
+    padding-top: 100px;
     p {
       font-size: 1.2em;
     }
+  }
+  @media bp-extra-wide {
+    max-width: 600px;
   }
 }

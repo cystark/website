@@ -8,18 +8,12 @@ export default function withImageWrap(Component) {
     }
 
     render() {
-      const { ratio, text = null, intRef } = this.props
+      const { ratio, intRef } = this.props
       return (
         <>
           <AspectRatio ratio={ratio}>
             <Component ref={intRef} />
           </AspectRatio>
-          {text && (
-            <div>
-              <hr />
-              <p>{text}</p>
-            </div>
-          )}
         </>
       )
     }

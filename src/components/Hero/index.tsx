@@ -3,13 +3,13 @@ import styles from "./styles.module.scss"
 import { illustration as illustrationAnimation } from "../../animations/timelines"
 import withImageWrap from "../withImageWrap"
 
-import Title from "../Title"
 import Illustration from "../Illustration"
 import LogoHero from "../LogoHero"
 import ContainerWrap from "../ContainerWrap"
 import Columns from "../Columns"
 import Column from "../Column"
 import Center from "../Center"
+import CTA from "../CTA"
 
 const highlights = [
   {
@@ -55,11 +55,13 @@ class Hero extends React.Component {
             {path == "/" && (
               <Center type="vertical">
                 <div className={styles.containerLogo}>
-                  <LogoHeroWithImageWrap
-                    ratio={285 / 500}
-                    ref={this.logoRef}
-                    text={description}
-                  />
+                  <LogoHeroWithImageWrap ratio={285 / 500} ref={this.logoRef} />
+                  <hr />
+                  <p>{description}</p>
+                  <CTA>
+                    June 1. Currently looking for job oppotunities. Contact me
+                    through Linkedin or Email
+                  </CTA>
                 </div>
               </Center>
             )}
