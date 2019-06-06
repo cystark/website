@@ -18,7 +18,7 @@ const Logo: React.StatelessComponent = () => {
 
 const Now: React.StatelessComponent = () => {
   return (
-    <svg width="50" height="50" background="#ece0c5">
+    <svg width="50" height="50">
       <rect
         width="50"
         height="50"
