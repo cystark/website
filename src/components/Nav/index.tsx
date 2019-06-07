@@ -2,13 +2,20 @@ import React from "react"
 import styles from "./styles.module.scss"
 import SiteData from "../../context/SiteData"
 import { Link } from "gatsby"
+import Button from "../Button"
 import inlineIcon from "../../utils/inlineIcon"
+import { connect } from "react-redux"
+import { toggleModal } from "../../state/actions"
 
 interface Props {
   className?: string
 }
 
-const Nav: React.FunctionComponent<Props> = ({ className }) => {
+const Nav: React.FunctionComponent<Props> = ({
+  openModal,
+  dispatch,
+  className,
+}) => {
   return (
     <SiteData.Consumer>
       {({ menuLinks, socialLinks }) => (
@@ -20,11 +27,28 @@ const Nav: React.FunctionComponent<Props> = ({ className }) => {
               </Link>
             </li>
           ))}
-          {socialLinks.map((link: any) => (
-            <li className={styles.navItem} key={link.link}>
-              <a className={styles.navLink} href={link.link} target="_blank">
-                {inlineIcon(link.name)}
-              </a>
+          {Object.keys(socialLinks).map((social: string, i: number) => (
+            <li className={styles.navItem} key={i}>
+              {social == "email" ? (
+                <a
+                  className={styles.navLink}
+                  onClick={e => {
+                    e.preventDefault()
+                    dispatch(toggleModal(!openModal))
+                  }}
+                  href={socialLinks.email.link}
+                >
+                  {inlineIcon(social)}
+                </a>
+              ) : (
+                <a
+                  className={styles.navLink}
+                  href={socialLinks[social].link}
+                  target="_blank"
+                >
+                  {inlineIcon(social)}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -33,4 +57,7 @@ const Nav: React.FunctionComponent<Props> = ({ className }) => {
   )
 }
 
-export default Nav
+export default connect(
+  ({ openModal }) => ({ openModal }),
+  null
+)(Nav)
