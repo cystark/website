@@ -11,6 +11,8 @@ import Column from "../Column"
 import Center from "../Center"
 import CTA from "../CTA"
 import SiteData from "../../context/SiteData"
+import { connect } from "react-redux"
+import { toggleModal } from "../../state/actions"
 
 const highlights = [
   {
@@ -47,9 +49,10 @@ class Hero extends React.Component {
   }
 
   render() {
+    const { dispatch, openModal } = this.props
     return (
       <SiteData.Consumer>
-        {({ description, location }) => (
+        {({ description, location, socialLinks: { email } }) => (
           <ContainerWrap>
             <Columns>
               <Column align="offsetLeft">
@@ -64,7 +67,17 @@ class Hero extends React.Component {
                       <p>{description}</p>
                       <CTA>
                         June 1. Currently looking for job oppotunities. Contact
-                        me through Linkedin or Email
+                        me{" "}
+                        <a
+                          href={email.link}
+                          onClick={event => {
+                            event.preventDefault()
+                            dispatch(toggleModal(!openModal))
+                          }}
+                        >
+                          here
+                        </a>{" "}
+                        .
                       </CTA>
                     </div>
                   </Center>
@@ -88,4 +101,7 @@ class Hero extends React.Component {
   }
 }
 
-export default Hero
+export default connect(
+  ({ openModal }) => ({ openModal }),
+  null
+)(Hero)

@@ -5,7 +5,10 @@ import styles from "./styles.module.scss"
 import Header from "../components/Header"
 import Hero from "../components/Hero"
 import Contact from "../components/Contact"
-import socialLinks from "../../config/socials"
+import Modal from "../components/Modal"
+import NetlifyForm from "../components/NetlifyForm"
+
+import socialLinks from "../utils/socialLinks"
 import Footer from "../components/Footer"
 import SiteData from "../context/SiteData"
 
@@ -19,11 +22,10 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
       query={homepageData}
       render={data => {
         const siteMetadata = data.site.siteMetadata
+        const { linkedin, github, twitter, email, ...rest } = siteMetadata
         const siteContext = {
-          title: siteMetadata.title,
-          description: siteMetadata.description,
-          menuLinks: siteMetadata.menuLinks ? siteMetadata.menuLinks : [],
-          socialLinks,
+          ...rest,
+          socialLinks: socialLinks({ linkedin, github, twitter, email }),
           location,
         }
         return (
@@ -35,6 +37,9 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
               <Contact />
               <Footer />
             </SiteData.Provider>
+            <Modal>
+              <NetlifyForm />
+            </Modal>
           </div>
         )
       }}
@@ -48,9 +53,13 @@ const homepageData = graphql`
       siteMetadata {
         title
         description
+        email
+        twitter
+        github
+        linkedin
         menuLinks {
-          link
           name
+          link
         }
       }
     }

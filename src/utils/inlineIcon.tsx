@@ -1,5 +1,5 @@
 import React from "react"
-import { Logo, Github, LinkedIn } from "../inline-icons"
+import { Logo, Github, LinkedIn, Email } from "../inline-icons"
 
 const inlineIcon = (name: string) => {
   if (name == "logo") {
@@ -8,6 +8,10 @@ const inlineIcon = (name: string) => {
     return <Github />
   } else if (name == "linkedin") {
     return <LinkedIn />
+  } else if (name == "email") {
+    return <Email />
+  } else {
+    return ""
   }
 }
 

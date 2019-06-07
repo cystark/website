@@ -2,27 +2,40 @@ import React from "react"
 import ContainerWrap from "../ContainerWrap"
 import Columns from "../Columns"
 import Column from "../Column"
-import Title from "../Title"
 import Theme from "../Theme"
-import styles from "./styles.module.scss"
+import SiteData from "../../context/SiteData"
+import { toggleModal } from "../../state/actions"
+import { connect } from "react-redux"
 
-const Contact = () => (
+const Contact = ({ dispatch, openModal }) => (
   <Theme theme="dark">
-    <ContainerWrap container="small" padding="medium" textAlign="center">
-      <Columns>
-        <Column mobile="half">
-          <p>
-            Email <a href="mailto:cam@cystark.com.au">cam@cystark.com.au</a>
-          </p>
-        </Column>
-        <Column mobile="half">
-          <p>
-            Twitter <a href="https://twitter.com/camyujistark">@camyujistark</a>
-          </p>
-        </Column>
-      </Columns>
-    </ContainerWrap>
+    <SiteData.Consumer>
+      {({ socialLinks: { email, twitter } }) => (
+        <ContainerWrap container="small" padding="medium" textAlign="center">
+          <Columns>
+            <Column mobile="half">
+              <span>Email</span>{" "}
+              <a
+                href={email.link}
+                onClick={event => {
+                  event.preventDefault()
+                  dispatch(toggleModal(!openModal))
+                }}
+              >
+                {email.info}
+              </a>
+            </Column>
+            <Column mobile="half">
+              <span>Twitter</span> <a href={twitter.link}>{twitter.info}</a>
+            </Column>
+          </Columns>
+        </ContainerWrap>
+      )}
+    </SiteData.Consumer>
   </Theme>
 )
 
-export default Contact
+export default connect(
+  ({ openModal }) => ({ openModal }),
+  null
+)(Contact)
