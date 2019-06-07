@@ -23,6 +23,7 @@ const ContainerWrap: React.FunctionComponent<Props> = ({
 
   const styleOptions = [
     className,
+    styles.container,
     styles[containerStyle],
     textAlign ? textStyle[textAlign] : "",
     padding ? paddingStyle[padding] : "",

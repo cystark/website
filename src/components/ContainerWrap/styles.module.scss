@@ -1,36 +1,34 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
 @value columnHalfGutter from '../Columns/styles.module.scss';
 
-.xsmall {
+.container {
   margin: 0 auto;
-  max-width: 31.25em;
   padding-left: columnHalfGutter;
   padding-right: columnHalfGutter;
+}
+
+.xsmall {
+  max-width: 31.25em;
 }
 
 .small {
-  margin: 0 auto;
   max-width: 42.5em;
-  padding-left: columnHalfGutter;
-  padding-right: columnHalfGutter;
 }
 
 .medium {
-  margin: 0 auto;
-  max-width: 62em;
-  padding-left: columnHalfGutter;
-  padding-right: columnHalfGutter;
+  max-width: 42.5em;
+  @media bp-site {
+    max-width: 62em;
+  }
 }
 
 .large {
-  margin: 0 auto;
-  max-width: 72em;
-  padding-left: columnHalfGutter;
-  padding-right: columnHalfGutter;
+  max-width: 42.5em;
+  @media bp-site {
+    max-width: 72em;
+  }
 }
 
 .wide {
-  margin: 0 auto;
   max-width: 100%;
-  padding-left: columnHalfGutter;
-  padding-right: columnHalfGutter;
 }
