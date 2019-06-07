@@ -3,4 +3,9 @@ const capitalizeWord = (word: string) =>
 
 const joinFilter = (array: string[]) => array.filter(Boolean).join(" ")
 
-export { capitalizeWord, joinFilter }
+const getToday = () => {
+  const date = new Date()
+  return `${date.getDate()}/${date.getMonth() + 1}`
+}
+
+export { capitalizeWord, joinFilter, getToday }

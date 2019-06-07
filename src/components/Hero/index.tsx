@@ -13,6 +13,7 @@ import CTA from "../CTA"
 import SiteData from "../../context/SiteData"
 import { connect } from "react-redux"
 import { toggleModal } from "../../state/actions"
+import { getToday } from "../../utils/helpers"
 
 const highlights = [
   {
@@ -54,7 +55,7 @@ class Hero extends React.Component {
       <SiteData.Consumer>
         {({ description, location, socialLinks: { email } }) => (
           <div className={styles.illustrationBackground}>
-            <ContainerWrap container="large">
+            <ContainerWrap container="large" padding="none">
               <Columns>
                 <Column theme="primary">
                   {location.pathname == "/" && (
@@ -67,7 +68,7 @@ class Hero extends React.Component {
                         <hr />
                         <p>{description}</p>
                         <CTA>
-                          June 1. Currently looking for job oppotunities.
+                          {getToday()}. Currently looking for job oppotunities.
                           Contact me{" "}
                           <a
                             href={email.link}
