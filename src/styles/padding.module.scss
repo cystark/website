@@ -1,3 +1,5 @@
+@value site as bp-site from './breakpoints.scss';
+
 @value desktop-large: 160px;
 @value desktop-medium: 100px;
 @value desktop-small: 2rem;
@@ -13,33 +15,33 @@
   padding-right: gutter;
 }
 
+.none {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .large {
   padding-top: mobile-large;
   padding-bottom: mobile-large;
+  @media bp-site {
+    padding-top: desktop-large;
+    padding-bottom: desktop-large;
+  }
 }
 
 .medium {
   padding-top: mobile-medium;
   padding-bottom: mobile-medium;
+  @media bp-site {
+    padding-top: desktop-medium;
+    padding-bottom: desktop-medium;
+  }
 }
 
 .small {
   padding-top: mobile-small;
   padding-bottom: mobile-small;
-}
-
-@media bp-site {
-  .large {
-    padding-top: desktop-large;
-    padding-bottom: desktop-large;
-  }
-
-  .medium {
-    padding-top: desktop-medium;
-    padding-bottom: desktop-medium;
-  }
-
-  .small {
+  @media bp-site {
     padding-top: desktop-small;
     padding-bottom: desktop-small;
   }
