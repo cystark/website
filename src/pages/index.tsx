@@ -25,9 +25,9 @@ interface Props {
 
 const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
   <Layout location={location}>
-    <ContainerWrap container="wide" padding="large">
+    <ContainerWrap container="large" padding="large">
       <Columns>
-        <Column desktop="twoFifths" align="offsetLeft">
+        <Column>
           <Columns direction="column">
             <Column>
               <Title>
@@ -68,7 +68,7 @@ const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
             </Column>
           </Columns>
         </Column>
-        <Column desktop="twoFifths">
+        <Column>
           <Columns>
             <Column>
               <Title>
