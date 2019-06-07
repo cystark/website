@@ -1,5 +1,4 @@
 @value site as bp-site from '../../styles/breakpoints.scss';
-@value extrawide as bp-extrawide from '../../styles/breakpoints.scss';
 
 .bg {
   fill: #d7d9da;
@@ -15,6 +14,13 @@
 
 .blinds {
   fill: #decea9;
+}
+
+.roof {
+  fill: #d7d9da;
+  @media bp-site {
+    fill: #ece0c5;
+  }
 }
 
 .illustration {

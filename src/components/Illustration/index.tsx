@@ -482,10 +482,11 @@ class Illustration extends React.Component {
             transform="translate(458 -1605)"
             fill="#FFFFFF"
           />
-          <use
-            xlinkHref="#path88_fill"
+          <path
+            id="roof"
+            className={styles.roof}
             transform="matrix(0.974565 0.224105 -0.224105 0.974565 -240.106 -2051.16)"
-            fill="#ece0c5"
+            d="M 1190.38 0L 1251.87 267.408L 0 273.734L 1190.38 0Z"
           />
         </g>
         <defs>
@@ -949,10 +950,6 @@ class Illustration extends React.Component {
           <path
             id="path86_fill"
             d="M 0 0L 17.7356 0L 17.7356 879.67L 0 879.67L 0 0Z"
-          />
-          <path
-            id="path88_fill"
-            d="M 1190.38 0L 1251.87 267.408L 0 273.734L 1190.38 0Z"
           />
           <path
             id="path89_fill"
