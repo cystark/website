@@ -57,7 +57,12 @@ class Modal extends React.Component {
           className={`${styles.container}${show ? " " + styles.isOpen : ""}`}
         >
           <div className={styles.overlay} onClick={() => this.handleClose()} />
-          <div className={styles.modal}>{this.props.children}</div>
+          <div className={styles.modal}>
+            <i className={styles.cross} onClick={() => this.handleClose()}>
+              X
+            </i>
+            <div className={styles.content}>{this.props.children}</div>
+          </div>
         </div>
       ),
       this.el
