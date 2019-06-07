@@ -33,7 +33,6 @@
 
 .container-illustration-wrap {
   margin: 0 auto;
-  width: 85%;
   @media bp-site {
     display: flex;
     width: 28%;
@@ -49,10 +48,9 @@
 }
 
 .container-illustration {
-  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   @media bp-site {
-    width: 100%;
     > div {
       transform: translateX(-44%);
     }
@@ -66,8 +64,9 @@
   background-color: var(--primary-theme-background);
   padding-top: 50px;
   padding-bottom: 10px;
-  max-width: 400px;
+  width: 100%;
   @media bp-site {
+    max-width: 400px;
     padding: 0;
     //Need to balance out with the CTA
     padding-top: 100px;
