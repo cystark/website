@@ -11,7 +11,7 @@ const Contact = ({ dispatch, openModal }) => (
   <Theme theme="dark">
     <SiteData.Consumer>
       {({ socialLinks: { email } }) => (
-        <ContainerWrap container="small" padding="medium" textAlign="center">
+        <ContainerWrap container="wide" padding="small" textAlign="center">
           <Columns>
             <Column>
               <span>Email</span>{" "}
