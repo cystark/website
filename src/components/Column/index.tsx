@@ -8,7 +8,7 @@ import { paddingOptions } from "../../type/options"
 interface Props {
   desktop?: "sidebar" | "full" | "half" | "twoFifths" | "one-third"
   mobile?: "full"
-  style: object
+  style?: object
 }
 
 const Column: React.FunctionComponent<Props & paddingOptions> = ({
