@@ -10,10 +10,10 @@ import { connect } from "react-redux"
 const Contact = ({ dispatch, openModal }) => (
   <Theme theme="dark">
     <SiteData.Consumer>
-      {({ socialLinks: { email, twitter } }) => (
+      {({ socialLinks: { email } }) => (
         <ContainerWrap container="small" padding="medium" textAlign="center">
           <Columns>
-            <Column mobile="half">
+            <Column>
               <span>Email</span>{" "}
               <a
                 href={email.link}
@@ -24,9 +24,6 @@ const Contact = ({ dispatch, openModal }) => (
               >
                 {email.info}
               </a>
-            </Column>
-            <Column mobile="half">
-              <span>Twitter</span> <a href={twitter.link}>{twitter.info}</a>
             </Column>
           </Columns>
         </ContainerWrap>

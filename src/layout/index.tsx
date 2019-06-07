@@ -25,7 +25,7 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
         const { linkedin, github, twitter, email, ...rest } = siteMetadata
         const siteContext = {
           ...rest,
-          socialLinks: socialLinks({ linkedin, github, twitter, email }),
+          socialLinks: socialLinks({ linkedin, github, email }),
           location,
         }
         return (
@@ -54,7 +54,6 @@ const homepageData = graphql`
         title
         description
         email
-        twitter
         github
         linkedin
         menuLinks {
