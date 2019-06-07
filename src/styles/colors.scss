@@ -1,6 +1,5 @@
 @value black1: #212121;
 @value black2: #3c3c3c;
-@value blackTransparent: rgba(0, 0, 0, 0.1);
 @value blue1: #9fb8ce;
 @value blue2: #7b9dbf;
 @value blue3: #0e4379;
@@ -13,21 +12,22 @@
 @value wheat1: #ece0c5;
 @value wheat2: #decea9;
 @value white1: #ffffff;
+@value transparentGray: rgba(222, 222, 222, 0.8);
 
 :root {
   /* General */
   --main-background: gray2;
   --illustration-background: wheat1;
   --text-color: black2;
-  --footer-color: white1;
-  --footer-background-color: black1;
+  --link-color: blue1;
+  --link-hover-color: gray1;
 
   /* hr */
   --hr-color: black2;
   --hr-background-color: black2;
 
   /* Scrollbar */
-  --scrollbar-background: pink1;
+  --scrollbar-background: black1;
   --scrollbar-inactive-background: gray1;
 
   /* Selection */
@@ -40,6 +40,15 @@
 
   /* CTA */
   --cta-background-color: wheat1;
+  --cta-link-color: black1;
+  --cta-link-hover-color: blue2;
+
+  /* Modal */
+  --modal-overlay-background-color: transparentGray;
+  --modal-background-color: white1;
+
+  /* Form */
+  --form-element-border-color: black2;
 
   /* Header */
   --header-background-color: black2;
@@ -55,6 +64,10 @@
   --header-logo-hover-color: blue2;
   --header-logo-hover-secondary-color: blue2;
 
+  /*Footer*/
+  --footer-color: white1;
+  --footer-background-color: black1;
+
   /* Primary */
   --primary-theme-background: gray2;
   --primary-theme-title-color: black2;
@@ -63,6 +76,10 @@
   --primary-theme-border-color: white1;
   --primary-theme-link-color: gray4;
   --primary-theme-link-hover-color: gray4;
+  --primary-theme-button-color: white1;
+  --primary-theme-button-background-color: black1;
+  --primary-theme-button-hover-color: black1;
+  --primary-theme-button-hover-background-color: white1;
 
   /* Wheat */
   --wheat-theme-background: wheat1;
