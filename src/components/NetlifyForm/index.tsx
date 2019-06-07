@@ -45,9 +45,11 @@ const NetlifyForm = () => (
               <textarea className={styles.textarea} name="message" required />
             </label>
           </p>
-          <Buttons align="right">
-            <Button type="submit">Send</Button>
-          </Buttons>
+          <p>
+            <Buttons align="right">
+              <Button type="submit">Send</Button>
+            </Buttons>
+          </p>
         </form>
       </Column>
     </Columns>
