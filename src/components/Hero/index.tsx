@@ -53,48 +53,52 @@ class Hero extends React.Component {
     return (
       <SiteData.Consumer>
         {({ description, location, socialLinks: { email } }) => (
-          <ContainerWrap>
-            <Columns>
-              <Column align="offsetLeft">
-                {location.pathname == "/" && (
-                  <Center type="vertical">
-                    <div className={styles.containerLogo}>
-                      <LogoHeroWithImageWrap
-                        ratio={285 / 500}
-                        ref={this.logoRef}
-                      />
-                      <hr />
-                      <p>{description}</p>
-                      <CTA>
-                        June 1. Currently looking for job oppotunities. Contact
-                        me{" "}
-                        <a
-                          href={email.link}
-                          onClick={event => {
-                            event.preventDefault()
-                            dispatch(toggleModal(!openModal))
-                          }}
-                        >
-                          here
-                        </a>{" "}
-                        .
-                      </CTA>
+          <div className={styles.illustrationBackground}>
+            <ContainerWrap container="large">
+              <Columns>
+                <Column theme="primary">
+                  {location.pathname == "/" && (
+                    <Center type="vertical">
+                      <div className={styles.containerLogo}>
+                        <LogoHeroWithImageWrap
+                          ratio={285 / 500}
+                          ref={this.logoRef}
+                        />
+                        <hr />
+                        <p>{description}</p>
+                        <CTA>
+                          June 1. Currently looking for job oppotunities.
+                          Contact me{" "}
+                          <a
+                            href={email.link}
+                            onClick={event => {
+                              event.preventDefault()
+                              dispatch(toggleModal(!openModal))
+                            }}
+                          >
+                            here
+                          </a>{" "}
+                          .
+                        </CTA>
+                      </div>
+                    </Center>
+                  )}
+                </Column>
+                <Column desktop="oneThird">
+                  <div className={styles.containerIllustrationWrap}>
+                    <div className={styles.containerIllustration}>
+                      <Center type="center">
+                        <IllustrationWithImageWrap
+                          ratio={542 / 600}
+                          ref={this.illustrationRef}
+                        />
+                      </Center>
                     </div>
-                  </Center>
-                )}
-              </Column>
-              <Column desktop="oneThird" theme="wheat">
-                <div className={styles.containerIllustrationWrap}>
-                  <div className={styles.containerIllustration}>
-                    <IllustrationWithImageWrap
-                      ratio={542 / 600}
-                      ref={this.illustrationRef}
-                    />
                   </div>
-                </div>
-              </Column>
-            </Columns>
-          </ContainerWrap>
+                </Column>
+              </Columns>
+            </ContainerWrap>
+          </div>
         )}
       </SiteData.Consumer>
     )

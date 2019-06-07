@@ -21,20 +21,30 @@
   }
 }
 
+.illustration-background {
+  @media bp-site {
+    background: linear-gradient(
+      90deg,
+      var(--primary-theme-background) 50%,
+      var(--wheat-theme-background) 50%
+    );
+  }
+}
+
 .container-illustration-wrap {
   margin: 0 auto;
   width: 85%;
   @media bp-site {
-    position: relative;
     display: flex;
-    align-self: flex-end;
-    width: 100%;
+    width: 28%;
+    min-width: 360px;
+    right: 0;
+    top: 0;
     height: calc(100vh - var(--header-height) - 100px);
     padding-bottom: 60px;
     background-color: var(--illustration-background);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    z-index: 1;
+    position: relative;
   }
 }
 
@@ -53,9 +63,12 @@
 }
 
 .container-logo {
+  background-color: var(--primary-theme-background);
+  padding-top: 50px;
   padding-bottom: 10px;
   max-width: 400px;
   @media bp-site {
+    padding: 0;
     //Need to balance out with the CTA
     padding-top: 100px;
     p {
