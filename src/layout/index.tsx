@@ -54,6 +54,7 @@ const homepageData = graphql`
         title
         description
         email
+        copyright
         github
         linkedin
         menuLinks {

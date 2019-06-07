@@ -3,6 +3,7 @@ module.exports = {
   titleAlt: "Cameron Yuji Stark",
   description: "Web Developer from Melbourne Australia",
   url: "https://cystark.com.au/",
+  copyright: "© Designed and Developed by CYStark 2019",
   siteURL: "https://cystark.com.au/",
   siteLanguage: "en",
   logo: "src/images/logo.png",
