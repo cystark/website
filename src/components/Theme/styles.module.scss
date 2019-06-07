@@ -15,7 +15,8 @@
   h3 {
     color: var(--primary-theme-title-color);
   }
-  p {
+  p,
+  span {
     color: var(--primary-theme-color);
   }
   td {
@@ -37,7 +38,8 @@
   h3 {
     color: var(--wheat-theme-title-color);
   }
-  p {
+  p,
+  span {
     color: var(--wheat-theme-color);
   }
   td {
@@ -59,7 +61,8 @@
   h3 {
     color: var(--blue-theme-title-color);
   }
-  p {
+  p,
+  span {
     color: var(--blue-theme-color);
   }
   td {
@@ -81,7 +84,8 @@
   h3 {
     color: var(--dark-theme-title-color);
   }
-  p {
+  p,
+  span {
     color: var(--dark-theme-color);
   }
   td {
@@ -103,7 +107,8 @@
   h3 {
     color: var(--black-theme-title-color);
   }
-  p {
+  p,
+  span {
     color: var(--black-theme-color);
   }
   td {
