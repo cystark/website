@@ -61,18 +61,19 @@ class Hero extends React.Component {
           <Columns>
             <Column theme="primary">
               <Center type="vertical">
-                <div className={styles.containerLogo}>
+                <div className={styles.containerLogoWrap}>
                   <SiteData.Consumer>
                     {({ description, location }) =>
                       location.pathname == "/" ? (
                         <>
-                          <LogoHeroWithImageWrap
-                            ratio={285 / 500}
-                            ref={this.logoRef}
-                          />
-                          <hr />
+                          <div className={styles.containerLogo}>
+                            <LogoHeroWithImageWrap
+                              ratio={285 / 500}
+                              ref={this.logoRef}
+                            />
+                          </div>
                           <p>{description}</p>
-
+                          <hr />
                           <HighlightPoint>
                             <span>{getToday()}</span>
                             <ToggleModal>

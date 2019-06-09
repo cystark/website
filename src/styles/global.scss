@@ -140,8 +140,10 @@ hr {
   box-shadow: none;
   border-top: 1px solid var(--hr-background-color);
   border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
   height: 0px;
-  margin: 19px 0 18px;
+  margin: 0 0 18px;
 }
 
 table {
