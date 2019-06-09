@@ -8,11 +8,13 @@ interface Props {
   className?: string
   children: string
   bottomPadding: string
+  size: string
 }
 
 const Title: React.FunctionComponent<Props & textAlignOptions> = ({
   children,
   className,
+  size = "normal",
   textAlign = "left",
   bottomPadding = "normal",
 }) => {
@@ -22,6 +24,7 @@ const Title: React.FunctionComponent<Props & textAlignOptions> = ({
     bottomPadding
       ? styles[`bottomPadding${capitalizeWord(bottomPadding)}`]
       : "",
+    size ? styles[`size${capitalizeWord(size)}`] : "",
     textStyle ? textStyle[textAlign] : "",
   ]
 
