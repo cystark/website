@@ -4,26 +4,16 @@ import Columns from "../Columns"
 import Column from "../Column"
 import Theme from "../Theme"
 import SiteData from "../../context/SiteData"
-import { toggleModal } from "../../state/actions"
-import { connect } from "react-redux"
+import ToggleModal from "../ToggleModal"
 
-const Contact = ({ dispatch, openModal }) => (
+const Contact = () => (
   <Theme theme="dark">
     <SiteData.Consumer>
       {({ socialLinks: { email } }) => (
         <ContainerWrap container="wide" padding="small" textAlign="center">
           <Columns>
             <Column>
-              <span>Email</span>{" "}
-              <a
-                href={email.link}
-                onClick={event => {
-                  event.preventDefault()
-                  dispatch(toggleModal(!openModal))
-                }}
-              >
-                {email.info}
-              </a>
+              <span>Email</span> <ToggleModal>{email.info}</ToggleModal>
             </Column>
           </Columns>
         </ContainerWrap>
@@ -32,7 +22,4 @@ const Contact = ({ dispatch, openModal }) => (
   </Theme>
 )
 
-export default connect(
-  ({ openModal }) => ({ openModal }),
-  null
-)(Contact)
+export default Contact
