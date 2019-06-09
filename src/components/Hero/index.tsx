@@ -74,11 +74,10 @@ class Hero extends React.Component {
                           <p>{description}</p>
 
                           <HighlightPoint>
-                            {getToday()}
+                            <span>{getToday()}</span>
                             <ToggleModal>
-                              Currently looking for job Oppotunities
-                            </ToggleModal>{" "}
-                            .
+                              Currently looking for job oppotunities
+                            </ToggleModal>
                           </HighlightPoint>
                         </>
                       ) : (
