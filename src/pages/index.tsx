@@ -16,6 +16,8 @@ import Columns from "../components/Columns"
 import Column from "../components/Column"
 import Title from "../components/Title"
 import Card from "../components/Card"
+import Hero from "../components/Hero"
+import SEO from "../components/SEO"
 
 import ContainerWrap from "../components/ContainerWrap"
 
@@ -25,12 +27,14 @@ interface Props {
 
 const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
   <Layout location={location}>
+    <SEO />
+    <Hero />
     <ContainerWrap container="large" padding="large">
       <Columns>
         <Column>
           <Columns direction="column">
             <Column>
-              <Title>
+              <Title bottomPadding="small">
                 <LogoSVG />
                 Hello Welcome
               </Title>
@@ -51,7 +55,7 @@ const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
               </p>
             </Column>
             <Column>
-              <Title>
+              <Title bottomPadding="small">
                 <NowSVG />
                 Now
               </Title>
@@ -71,7 +75,7 @@ const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
         <Column>
           <Columns>
             <Column>
-              <Title>
+              <Title bottomPadding="small">
                 <BronsonSVG />
                 Projects I am Working on
               </Title>
@@ -89,7 +93,7 @@ const IndexPage: React.StatelessComponent<Props> = ({ location }) => (
                     <p>
                       I love typing tests, and have it as my morning ritual. I
                       am yet to find something for coders in a way that I want.
-                      So much so I am creating a game for the Mac.
+                      So much so I am creating a game with React & Electron.
                     </p>
                   </Card>
                 </Column>
