@@ -32,7 +32,6 @@ const HomePage: React.StatelessComponent<Props> = ({ location, children }) => {
           <div className={styles.container}>
             <SiteData.Provider value={siteContext}>
               <Header />
-              <Hero />
               {children}
               <Contact />
               <Footer />
