@@ -38,12 +38,14 @@
     "react-helmet": "^5.2.1",
     "react-redux": "^7.0.3",
     "redux": "^4.0.1",
+    "store": "^2.0.12",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@types/gsap": "^1.20.2",
     "@types/jest": "^24.0.13",
+    "@types/store": "^2.0.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",

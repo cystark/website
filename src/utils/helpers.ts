@@ -1,3 +1,11 @@
+const delay = (() => {
+  let timer = 0
+  return (callback, ms) => {
+    clearTimeout(timer)
+    timer = setTimeout(callback, ms)
+  }
+})()
+
 const capitalizeWord = (word: string) =>
   word.charAt(0).toUpperCase() + word.slice(1)
 
@@ -8,4 +16,4 @@ const getToday = () => {
   return `${date.getDate()}/${date.getMonth() + 1}`
 }
 
-export { capitalizeWord, joinFilter, getToday }
+export { delay, capitalizeWord, joinFilter, getToday }
