@@ -1,6 +1,9 @@
 import React from "react"
 import styles from "./styles.module.scss"
-import { illustration as illustrationAnimation } from "../../animations/timelines"
+import {
+  illustration as illustrationAnimation,
+  illustrationInit as illustrationInitAnimation,
+} from "../../animations/timelines"
 import withImageWrap from "../withImageWrap"
 
 import Illustration from "../Illustration"
@@ -13,6 +16,7 @@ import Center from "../Center"
 import ToggleModal from "../ToggleModal"
 import HighlightPoint from "../HighlightPoint"
 import SiteData from "../../context/SiteData"
+import { siteInit } from "../../state/actions"
 import { connect } from "react-redux"
 import { capitalizeWord, getToday } from "../../utils/helpers"
 
@@ -50,7 +54,12 @@ class Hero extends React.Component {
 
   componentDidMount() {
     const { svgRef } = this.illustrationRef.current
-    illustrationAnimation(svgRef.current)
+    if (!this.props.siteInit) {
+      illustrationInitAnimation(svgRef.current)
+      this.props.dispatch(siteInit(true))
+    } else {
+      illustrationAnimation(svgRef.current)
+    }
   }
 
   render() {
@@ -116,4 +125,7 @@ class Hero extends React.Component {
   }
 }
 
-export default Hero
+export default connect(
+  ({ siteInit }) => ({ siteInit }),
+  null
+)(Hero)
