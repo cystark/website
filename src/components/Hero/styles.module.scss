@@ -7,7 +7,6 @@
   @media bp-site {
     padding-top: 0;
     display: flex;
-    height: calc(100vh - 200px);
     min-height: 500px;
     flex-wrap: wrap;
   }
@@ -37,10 +36,10 @@
     display: flex;
     width: 28%;
     min-width: 360px;
+    height: calc(100vh - 200px);
+    min-height: 400px;
     right: 0;
     top: 0;
-    height: calc(100vh - var(--header-height) - 100px);
-    padding-bottom: 60px;
     background-color: var(--illustration-background);
     z-index: 1;
     position: relative;

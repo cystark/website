@@ -100,7 +100,7 @@ class Hero extends React.Component {
             <Column desktop="oneThird">
               <div className={styles.containerIllustrationWrap}>
                 <div className={styles.containerIllustration}>
-                  <Center type="center">
+                  <Center type="vertical">
                     <IllustrationWithImageWrap
                       ratio={542 / 600}
                       ref={this.illustrationRef}
