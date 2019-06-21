@@ -86,11 +86,9 @@ class NetlifyForm extends React.Component {
                   />
                 </label>
               </p>
-              <p>
-                <Buttons align="right">
-                  <Button type="submit">Send</Button>
-                </Buttons>
-              </p>
+              <Buttons align="right">
+                <Button type="submit">Send</Button>
+              </Buttons>
             </form>
           </Column>
         </Columns>
