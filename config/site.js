@@ -16,19 +16,5 @@ module.exports = {
   email: "cam@cystark.com.au",
   instagram: "cam.yuji.stark",
   linkedin: "cameron-stark-b0469721",
-  menuLinks: [
-    {
-      link: "/",
-      name: "home",
-    },
-    {
-      link: "/skills",
-      name: "skills",
-    },
-    {
-      link: "/inspirations",
-      name: "inspirations",
-    },
-  ],
   pathPrefix: "/",
 }
