@@ -1,27 +1,29 @@
 import React from "react"
 import { connect } from "react-redux"
-import { toggleModal } from "../../state/actions"
-import SiteData from "../../context/SiteData"
+import { toggleModal } from "@state/actions"
+import SiteData from "@context/SiteData"
+import { AppState, AppActions, ConnectedReduxProps } from "@state/types"
 
-interface Props {
-  url?: string
+interface Props extends ConnectedReduxProps<AppActions> {
+  children?: any
 }
 
-const ToggleModal: React.FunctionComponent<Props> = ({
-  openModal,
-  dispatch,
-  children,
-  url,
-}) => {
+type AllProps = Props & AppState
+
+const ToggleModal: React.FunctionComponent<AllProps> = props => {
+  const { dispatch, openModal, children } = props
   return (
     <SiteData.Consumer>
-      {({ socialLinks: { email } }) => (
+      {({ socialLinks = {} }) => (
         <a
           onClick={e => {
             e.preventDefault()
-            dispatch(toggleModal(!openModal))
+            //Could be a better way to do this
+            //Only warny I could find to remove the typescipt error on dispatch
+            //was to make it conditional. Looking for better way here
+            dispatch && dispatch(toggleModal(!openModal))
           }}
-          href={email.link}
+          href={socialLinks.email!.link}
         >
           {children}
         </a>
@@ -30,7 +32,13 @@ const ToggleModal: React.FunctionComponent<Props> = ({
   )
 }
 
+const mapStateToProps = (state: AppState) => ({
+  openModal: state.openModal,
+})
+
+const mapDispatchToProps = null
+
 export default connect(
-  ({ openModal }) => ({ openModal }),
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(ToggleModal)

@@ -1,30 +1,35 @@
+@value gtransition from '../../styles/animation.scss';
+
 .button {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  min-width: 100px;
+  display: inline-block;
   background-color: #fff;
-  border-width: 1px;
   border-color: #dbdbdb;
   border-radius: 3px;
+  border-width: 1px;
   cursor: pointer;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
   font-size: 1rem;
-  padding-left: 0.75em;
-  padding-top: calc(0.375em - 1px);
+  justify-content: center;
   padding-bottom: calc(0.375em - 1px);
+  padding-left: 0.75em;
   padding-right: 0.75em;
+  padding-top: calc(0.375em - 1px);
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+  transition: gtransition;
 }
 
 .size-small {
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .size-normal {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .size-medium {
@@ -36,7 +41,6 @@
 }
 
 .theme-primary {
-  transition: gtrasition;
   background-color: var(--primary-theme-button-background-color);
   color: var(--primary-theme-button-color);
   &:hover {
@@ -48,4 +52,26 @@
 .theme-secondary {
   background-color: var(--secondary-theme-button-background-color);
   color: var(--secondary-theme-button-color);
+}
+
+.theme-ghost {
+  background-color: transparent;
+  color: black;
+  border-color: #000000;
+  border-style: solid;
+  &:hover {
+    color: white;
+    background-color: #000000;
+  }
+}
+
+.theme-ghost-white {
+  background-color: transparent;
+  color: white;
+  border-color: #FFFFFF;
+  border-style: solid;
+  &:hover {
+    color: black;
+    background-color: white;
+  }
 }

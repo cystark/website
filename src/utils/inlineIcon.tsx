@@ -1,5 +1,5 @@
 import React from "react"
-import { Logo, Github, LinkedIn, Email } from "../inline-icons"
+import { Logo, Github, LinkedIn, Email } from "@components/inline-icons"
 
 const inlineIcon = (name: string) => {
   if (name == "logo") {

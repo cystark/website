@@ -1,6 +1,6 @@
-import { TimelineMax as Timeline, Power1 } from "gsap"
+import { TimelineMax as Timeline } from "gsap"
 
-const dog = async node => {
+const dog = async (node: SVGSVGElement) => {
   return new Promise(resolve => {
     const dog = node.querySelectorAll("#dog")
     const timeline = new Timeline({

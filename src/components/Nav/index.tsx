@@ -5,10 +5,10 @@ import { Link } from "gatsby"
 import inlineIcon from "../../utils/inlineIcon"
 import ToggleModal from "../ToggleModal"
 
-const Nav: React.FunctionComponent<Props> = () => {
+const Nav: React.FunctionComponent = () => {
   return (
     <SiteData.Consumer>
-      {({ menuLinks = [], socialLinks }) => (
+      {({ menuLinks = [], socialLinks = {} }) => (
         <ul className={styles.nav}>
           {menuLinks.map((link: any) => (
             <li className={styles.navItem} key={link.link}>
@@ -18,13 +18,13 @@ const Nav: React.FunctionComponent<Props> = () => {
             </li>
           ))}
           {Object.keys(socialLinks).map((social: string, i: number) => (
-            <li className={styles.navItem} key={i}>
+            <li className={styles.navItem} key={social}>
               {social == "email" ? (
                 <ToggleModal>{inlineIcon(social)}</ToggleModal>
               ) : (
                 <a
                   className={styles.navLink}
-                  href={socialLinks[social].link}
+                  href={socialLinks[social.toString()].link}
                   target="_blank"
                 >
                   {inlineIcon(social)}

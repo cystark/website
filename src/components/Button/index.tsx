@@ -1,43 +1,49 @@
 import React from "react"
 import styles from "./styles.module.scss"
-import { joinFilter, capitalizeWord } from "../../utils/helpers"
+import { joinFilter, capitalizeWord } from "@utils/helpers"
 
-interface Props {
-  className: string
-  type: "submit" | "reset" | "button"
-  size: string
-  theme: string
-  style: object
-  onClick: any
+type ButtonProps = {
+  className?: string
+  size?: string
+  theme?: string
+  href?: string
+  target?: string
+  type?: "submit" | "button" | "reset" | undefined
 }
 
-const Button: React.FunctionComponent<Props> = ({
-  children,
-  size = "normal",
-  type = "button",
-  theme = "primary",
+const Button: React.FunctionComponent<ButtonProps> = ({
   className,
-  style,
-  onClick,
+  size = "medium",
+  theme = "ghost",
+  href = null,
+  target = "_blank",
+  children,
+  ...props
 }) => {
   const styleOptions = [
-    className,
+    className ? className : "",
     styles.button,
     size ? styles[`size${capitalizeWord(size)}`] : "",
     theme ? styles[`theme${capitalizeWord(theme)}`] : "",
   ]
 
-  return (
-    <>
-      <button
-        onClick={onClick}
-        type={type}
+  if (href) {
+    return (
+      <a
+        {...props}
+        href={href}
+        target={target}
         className={joinFilter(styleOptions)}
-        style={style}
       >
         {children}
-      </button>
-    </>
+      </a>
+    )
+  }
+
+  return (
+    <button {...props} className={joinFilter(styleOptions)}>
+      {children}
+    </button>
   )
 }
 

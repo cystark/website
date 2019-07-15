@@ -10,24 +10,24 @@ import listStyle from "./list.module.scss"
 import columnsStyle from "./columns.module.scss"
 
 interface Props {
-  type: string
+  type?: string
   title?: string
-  textAlign: string
-  theme: string
-  padding: string
+  textAlign?: string
+  theme?: string
+  padding?: string
   container?: string
-  columns: string
+  columns?: string
   html?: string
 }
 
 const Block: React.FunctionComponent<Props> = ({
   type,
   title,
-  textAlign,
-  theme,
+  textAlign = "left",
+  theme = "primary",
   padding,
-  container,
-  columns,
+  container = "small",
+  columns = "",
   html,
   children,
 }) => {
@@ -60,11 +60,7 @@ const Block: React.FunctionComponent<Props> = ({
   return (
     <div className={blockStyle}>
       <VerticalPadding padding={padding}>
-        <ContainerWrap
-          className={blockContent}
-          container={container}
-          textAlign={textAlign}
-        >
+        <ContainerWrap className={blockContent}>
           {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : children}
         </ContainerWrap>
       </VerticalPadding>

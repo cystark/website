@@ -7,17 +7,20 @@
   font-family: "Oswald";
   font-size: 1.8em;
   line-height: 1.8em;
-  display: inline-flex;
-  align-self: center;
-  svg {
-    margin-right: 18px;
-  }
   a {
     color: var(--header-logo-color);
     transition: gtransition;
     &:hover {
       color: var(--header-logo-hover-secondary-color);
     }
+  }
+}
+
+.with-icon {
+  display: inline-flex;
+  align-self: center;
+  svg {
+    margin-right: 18px;
   }
 }
 
@@ -47,10 +50,10 @@
 
 .size-normal {
   font-size: 1.6em;
-  line-height: 1.6;
+  line-height: 2.2;
   @media bp-site {
     font-size: 1.8em;
-    line-height: 1.8;
+    line-height: 2;
   }
 }
 

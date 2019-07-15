@@ -1,6 +1,10 @@
 @value site as bp-site from '../../styles/breakpoints.scss';
 @value extrawide as bp-extrawide from '../../styles/breakpoints.scss';
 
+.primary-background {
+  background-color: var(--primary-theme-background);
+}
+
 .homepage {
   width: 100%;
   padding-top: 30px;

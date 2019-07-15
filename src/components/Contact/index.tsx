@@ -1,25 +1,27 @@
 import React from "react"
+import styles from "./styles.module.scss"
 import ContainerWrap from "../ContainerWrap"
 import Columns from "../Columns"
 import Column from "../Column"
-import Theme from "../Theme"
-import SiteData from "../../context/SiteData"
 import ToggleModal from "../ToggleModal"
+import Title from "../../components/Title"
+import Button from "@components/Button"
 
 const Contact = () => (
-  <Theme theme="dark">
-    <SiteData.Consumer>
-      {({ socialLinks: { email } }) => (
-        <ContainerWrap container="wide" padding="small" textAlign="center">
-          <Columns>
-            <Column>
-              <span>Email</span> <ToggleModal>{email.info}</ToggleModal>
-            </Column>
-          </Columns>
-        </ContainerWrap>
-      )}
-    </SiteData.Consumer>
-  </Theme>
+  <div className={styles.container}>
+    <ContainerWrap container="wide" padding="medium" textAlign="center">
+      <Columns direction="column">
+        <Column>
+          <Title textAlign="center" size="medium">
+            Let's Work Together{" "}
+          </Title>
+          <ToggleModal>
+            <Button theme="ghostWhite">Click here</Button>
+          </ToggleModal>
+        </Column>
+      </Columns>
+    </ContainerWrap>
+  </div>
 )
 
 export default Contact

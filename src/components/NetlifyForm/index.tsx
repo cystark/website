@@ -1,30 +1,37 @@
 import React from "react"
-import ContainerWrap from "../ContainerWrap"
-import Columns from "../Columns"
-import Column from "../Column"
-import Button from "../Button"
-import Buttons from "../Buttons"
-import Title from "../Title"
-import styles from "./styles.module.scss"
-import { Logo as LogoSVG } from "../../inline-icons"
 import store from "store"
-import { delay } from "../../utils/helpers"
 
-class NetlifyForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = store.get("cystark.userData") || {}
-    console.log(store.get("cystark.userData"))
-  }
+import styles from "./styles.module.scss"
 
-  handleSubmit = event => {
+import ContainerWrap from "@components/ContainerWrap"
+import Columns from "@components/Columns"
+import Column from "@components/Column"
+import Button from "@components/Button"
+import Buttons from "@components/Buttons"
+import Title from "@components/Title"
+import { Logo as LogoSVG } from "@components/inline-icons"
+import { delay } from "@utils/helpers"
+
+interface iProps {}
+
+interface iState {
+  [name: string]: string
+}
+
+class NetlifyForm extends React.Component<iProps, iState> {
+  state = store.get("cystark.userData") || {}
+  formRef = React.createRef<HTMLFormElement>()
+
+  handleSubmit = (event: React.FormEvent<EventTarget>) => {
     event.preventDefault()
     this.setState({ name: "", email: "", message: "" })
-    event.target.reset()
+    this.formRef.current!.reset()
   }
 
-  handleUpdate = event => {
-    const { name, value } = event.target
+  handleUpdate = (
+    event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.currentTarget
 
     this.setState({ [name]: value }, () => {
       delay(() => {
@@ -43,8 +50,9 @@ class NetlifyForm extends React.Component {
               Lets Work Together
             </Title>
             <form
+              ref={this.formRef}
               name="contact"
-              netlify="string"
+              data-netlify={true}
               className={styles.themePrimary}
               onSubmit={this.handleSubmit}
             >

@@ -1,15 +1,17 @@
-import { createStore as reduxCreateStore } from "redux"
+// ./stc/configureStore.ts
 
-const reducer = (state, action) => {
-  if (action.type === `TOGGLE_MODAL`) {
-    return { ...state, openModal: action.openModal }
-  }
-  return state
+import { createStore, Store } from "redux"
+
+import { AppState } from "./types"
+
+import reducer from "./reducer"
+
+export default function configureStore(
+  initialState: AppState
+): Store<AppState> {
+  return createStore(
+    reducer,
+    initialState
+    //middleware
+  )
 }
-
-const initialState = {
-  openModal: false,
-}
-
-const createStore = () => reduxCreateStore(reducer, initialState)
-export default createStore

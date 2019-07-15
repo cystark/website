@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./styles.module.scss"
-import ContainerWrap from "../ContainerWrap"
-import SiteData from '../../context/SiteData'
+import ContainerWrap from "@components/ContainerWrap"
+import SiteData from "@context/SiteData"
 
 const Footer = () => (
   <SiteData.Consumer>

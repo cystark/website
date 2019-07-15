@@ -1,6 +1,6 @@
 import { TimelineMax as Timeline, Power1 } from "gsap"
 
-const init = async node => {
+const init = async (node: SVGSVGElement) => {
   return new Promise(resolve => {
     const timeline = new Timeline({
       paused: true,
@@ -12,7 +12,7 @@ const init = async node => {
         1.5,
         {
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         0.1
       )
@@ -22,12 +22,12 @@ const init = async node => {
         {
           y: "+=50",
           opacity: 0,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         {
           y: "0",
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         0.5
       )
@@ -37,12 +37,12 @@ const init = async node => {
         {
           y: "+=50",
           opacity: 0,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         {
           y: "0",
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         0.9
       )
@@ -52,12 +52,12 @@ const init = async node => {
         {
           y: "+=50",
           opacity: 0,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         {
           y: "0",
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         0.4
       )
@@ -67,12 +67,12 @@ const init = async node => {
         {
           y: "+=50",
           opacity: 0,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         {
           y: "0",
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         0.6
       )
@@ -82,12 +82,12 @@ const init = async node => {
         {
           y: "+=50",
           opacity: 0,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         {
           y: "0",
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         1.0
       )
@@ -97,12 +97,12 @@ const init = async node => {
         {
           y: "+=50",
           opacity: 0,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         {
           y: "0",
           opacity: 1,
-          ease: Power1.anticipate,
+          ease: Power1.easeInOut,
         },
         1.0
       )
