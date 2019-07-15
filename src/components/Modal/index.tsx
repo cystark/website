@@ -5,7 +5,8 @@ import { connect } from "react-redux"
 import { toggleModal } from "../../state/actions"
 import { AppState, AppActions, ConnectedReduxProps } from "../../state/types"
 
-const modalRoot = document.getElementById("modal-root") || null
+const modalRoot =
+  typeof document !== `undefined` ? document.getElementById("modal-root") : null
 
 interface Props extends ConnectedReduxProps<AppActions> {
   children?: any
@@ -19,17 +20,20 @@ interface IState {
 type AllProps = Props & AppState
 
 class Modal extends React.Component<AllProps, IState> {
-  divElement: Element
+  DivElement: HTMLDivElement | null
 
   constructor(props: any) {
     super(props)
-    this.divElement = document.createElement("div")
     this.state = { show: false }
+    this.DivElement = null
+    if (typeof document !== `undefined`) {
+      this.DivElement = document.createElement("div")
+    }
   }
 
   componentDidMount() {
-    if (modalRoot) {
-      modalRoot.appendChild(this.divElement)
+    if (modalRoot && this.DivElement) {
+      modalRoot.appendChild(this.DivElement)
     }
   }
 
@@ -43,13 +47,15 @@ class Modal extends React.Component<AllProps, IState> {
 
   componentWillUnmount() {
     if (modalRoot) {
-      modalRoot.removeChild(this.divElement)
+      modalRoot.removeChild(this.DivElement)
     }
   }
 
   handleOpen() {
     setTimeout(() => {
-      document.body.style.overflow = "hidden"
+      if (typeof document !== `undefined`) {
+        document.body.style.overflow = "hidden"
+      }
       this.setState({
         show: true,
       })
@@ -57,7 +63,9 @@ class Modal extends React.Component<AllProps, IState> {
   }
 
   handleClose() {
-    document.body.style.overflow = "initial"
+    if (typeof document !== `undefined`) {
+      document.body.style.overflow = "initial"
+    }
     this.setState({
       show: false,
     })
@@ -70,6 +78,9 @@ class Modal extends React.Component<AllProps, IState> {
   render() {
     const { openModal } = this.props
     const { show } = this.state
+    if (!this.DivElement) {
+      return false
+    }
     return ReactDOM.createPortal(
       openModal && (
         <div
@@ -84,7 +95,7 @@ class Modal extends React.Component<AllProps, IState> {
           </div>
         </div>
       ),
-      this.divElement
+      this.DivElement
     )
   }
 }
