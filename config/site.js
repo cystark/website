@@ -1,7 +1,7 @@
 module.exports = {
-  title: "C Y Stark",
+  title: "CY Stark",
   titleAlt: "Cam Yuji Stark - Web Developer",
-  description: "Web Developer from Melbourne Australia",
+  description: "Web Developer from Melbourne, Australia",
   url: "https://cystark.com.au/",
   copyright: "© Designed and Developed by CYStark 2019",
   siteURL: "https://cystark.com.au/",
