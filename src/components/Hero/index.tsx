@@ -1,7 +1,8 @@
 import React from "react"
 import styles from "./styles.module.scss"
-import illustrationInitAnimation from "../../animations/init"
-import illustrationDogAnimation from "../../animations/dog"
+import illustrationInitAnimation from "@animations/init"
+import illustrationDogAnimation from "@animations/dog"
+import illustrationFingersAnimation from "@animations/fingers"
 import withImageWrap from "../withImageWrap"
 
 import Illustration from "@components/Illustration"
@@ -47,7 +48,10 @@ export class Hero extends React.Component<AllProps> {
     //Only strat once at when site inits
     if (!this.props.siteInit && svgRef) {
       await illustrationInitAnimation(svgRef.svgRef.current)
-      await illustrationDogAnimation(svgRef.svgRef.current)
+      await Promise.all([
+        illustrationDogAnimation(svgRef.svgRef.current),
+        illustrationFingersAnimation(svgRef.svgRef.current),
+      ])
       if (this.props.dispatch) {
         await this.props.dispatch(siteInit(true))
       }
