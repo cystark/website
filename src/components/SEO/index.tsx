@@ -1,39 +1,36 @@
 import React, { Component } from "react"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
+import SiteData from "@context/SiteData"
 
-const SEO = ({
-  title = null,
-  desc = null,
-  banner = null,
-  pathname = null,
-  article = false,
-}) => (
-  <StaticQuery
-    query={query}
-    render={({
-      site: {
-        buildTime,
-        siteMetadata: {
-          defaultTitle,
-          titleAlt,
-          shortName,
-          author,
-          siteLanguage,
-          logo,
-          siteURL,
-          pathPrefix,
-          defaultDescription,
-          defaultBanner,
-          twitter,
-        },
-      },
+interface Props {
+  title?: string
+}
+
+const SEO: React.SFC<Props> = ({ title }) => (
+  <SiteData.Consumer>
+    {({
+      title: defaultTitle,
+      banner,
+      description,
+      titleAlt,
+      shortName,
+      author,
+      siteLanguage,
+      logo,
+      siteURL,
+      pathPrefix,
+      twitter,
+      //Cannot write location : {pathname}
+      //Typescript errors with does not exist on type when it is clearly there
+      //in the type
+      location,
     }) => {
-      const seo = {
+      const data = {
         title: title || defaultTitle,
-        description: defaultDescription || desc,
-        image: `${siteURL}${banner || defaultBanner}`,
-        url: `${siteURL}${pathname || "/"}`,
+        description: description,
+        image: `${siteURL}${banner}`,
+        url: `${location ? siteURL + location.pathname : "/"}`,
       }
       const realPrefix = pathPrefix === "/" ? "" : pathPrefix
       let schemaOrgJSONLD = [
@@ -42,55 +39,17 @@ const SEO = ({
           "@type": "WebSite",
           "@id": siteURL,
           url: siteURL,
-          name: defaultTitle,
+          name: title,
           alternateName: titleAlt || "",
         },
       ]
 
-      if (article) {
-        schemaOrgJSONLD = [
-          {
-            "@context": "http://schema.org",
-            "@type": "BlogPosting",
-            "@id": seo.url,
-            url: seo.url,
-            name: title,
-            alternateName: titleAlt || "",
-            headline: title,
-            image: {
-              "@type": "ImageObject",
-              url: seo.image,
-            },
-            description: seo.description,
-            datePublished: buildTime,
-            dateModified: buildTime,
-            author: {
-              "@type": "Person",
-              name: author,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: author,
-              logo: {
-                "@type": "ImageObject",
-                url: siteURL + realPrefix + logo,
-              },
-            },
-            isPartOf: siteURL,
-            mainEntityOfPage: {
-              "@type": "WebSite",
-              "@id": siteURL,
-            },
-          },
-        ]
-      }
-
       return (
         <>
-          <Helmet title={seo.title}>
+          <Helmet title={title}>
             <html lang={siteLanguage} />
-            <meta name="description" content={seo.description} />
-            <meta name="image" content={seo.image} />
+            <meta name="description" content={description} />
+            <meta name="image" content={logo} />
             <meta name="apple-mobile-web-app-title" content={shortName} />
             <meta name="application-name" content={shortName} />
             <script type="application/ld+json">
@@ -98,44 +57,22 @@ const SEO = ({
             </script>
 
             {/* OpenGraph  */}
-            <meta property="og:url" content={seo.url} />
-            <meta property="og:type" content={article ? "article" : null} />
-            <meta property="og:title" content={seo.title} />
-            <meta property="og:description" content={seo.description} />
-            <meta property="og:image" content={seo.image} />
+            <meta property="og:url" content={siteURL} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={logo} />
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:creator" content={twitter} />
-            <meta name="twitter:title" content={seo.title} />
-            <meta name="twitter:description" content={seo.description} />
-            <meta name="twitter:image" content={seo.image} />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={logo} />
           </Helmet>
         </>
       )
     }}
-  />
+  </SiteData.Consumer>
 )
 
 export default SEO
-
-const query = graphql`
-  query SEO {
-    site {
-      buildTime(formatString: "YYYY-MM-DD")
-      siteMetadata {
-        defaultTitle: title
-        titleAlt
-        shortName
-        author
-        siteLanguage
-        logo
-        siteURL: url
-        pathPrefix
-        defaultDescription: description
-        defaultBanner: banner
-        twitter
-      }
-    }
-  }
-`

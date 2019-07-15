@@ -3,21 +3,37 @@ import ReactDOM from "react-dom"
 import styles from "./styles.module.scss"
 import { connect } from "react-redux"
 import { toggleModal } from "../../state/actions"
+import { AppState, AppActions, ConnectedReduxProps } from "../../state/types"
 
-const modalRoot = document.getElementById("modal-root")
+const modalRoot = document.getElementById("modal-root") || null
 
-class Modal extends React.Component {
-  constructor(props) {
+interface Props extends ConnectedReduxProps<AppActions> {
+  children?: any
+  show?: boolean
+}
+
+interface IState {
+  show?: boolean
+}
+
+type AllProps = Props & AppState
+
+class Modal extends React.Component<AllProps, IState> {
+  divElement: Element
+
+  constructor(props: any) {
     super(props)
-    this.el = document.createElement("div")
+    this.divElement = document.createElement("div")
     this.state = { show: false }
   }
 
   componentDidMount() {
-    modalRoot.appendChild(this.el)
+    if (modalRoot) {
+      modalRoot.appendChild(this.divElement)
+    }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: AllProps) {
     if (this.props.openModal !== prevProps.openModal) {
       if (this.props.openModal) {
         this.handleOpen()
@@ -26,7 +42,9 @@ class Modal extends React.Component {
   }
 
   componentWillUnmount() {
-    modalRoot.removeChild(this.el)
+    if (modalRoot) {
+      modalRoot.removeChild(this.divElement)
+    }
   }
 
   handleOpen() {
@@ -44,7 +62,8 @@ class Modal extends React.Component {
       show: false,
     })
     setTimeout(() => {
-      this.props.dispatch(toggleModal(!this.props.openModal))
+      this.props.dispatch &&
+        this.props.dispatch(toggleModal(!this.props.openModal))
     }, 1000)
   }
 
@@ -57,15 +76,26 @@ class Modal extends React.Component {
           className={`${styles.container}${show ? " " + styles.isOpen : ""}`}
         >
           <div className={styles.overlay} onClick={() => this.handleClose()} />
-          <div className={styles.modal}>{this.props.children}</div>
+          <div className={styles.modal}>
+            <i className={styles.cross} onClick={() => this.handleClose()}>
+              X
+            </i>
+            <div className={styles.content}>{this.props.children}</div>
+          </div>
         </div>
       ),
-      this.el
+      this.divElement
     )
   }
 }
 
+const mapStateToProps = (state: AppState) => ({
+  openModal: state.openModal,
+})
+
+const mapDispatchToProps = null
+
 export default connect(
-  ({ openModal }) => ({ openModal }),
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(Modal)

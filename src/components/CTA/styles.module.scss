@@ -1,7 +1,12 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
+
 .cta {
   background: var(--cta-background-color);
   padding: 15px 26px;
-  margin: 25px 0;
+  margin-top: 25px;
+  @media bp-site {
+    margin-bottom: 25px;
+  }
 }
 
 .cta a {

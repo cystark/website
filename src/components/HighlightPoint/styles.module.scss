@@ -1,0 +1,25 @@
+.highlight-point {
+  & {
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    padding: 5px;
+    margin-top: -10px;
+    text-align: left;
+    display: flex;
+  }
+  a {
+    text-decoration: none;
+    padding-left: 10px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.8;
+  }
+  > span {
+    color: white;
+    background-color: black;
+    padding: 2px 20px;
+    margin-right: 5px;
+    height: 25px;
+  }
+}

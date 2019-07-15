@@ -1,13 +1,16 @@
 @value site as bp-site from '../../styles/breakpoints.scss';
 @value extrawide as bp-extrawide from '../../styles/breakpoints.scss';
 
+.primary-background {
+  background-color: var(--primary-theme-background);
+}
+
 .homepage {
   width: 100%;
   padding-top: 30px;
   @media bp-site {
     padding-top: 0;
     display: flex;
-    height: calc(100vh - 200px);
     min-height: 500px;
     flex-wrap: wrap;
   }
@@ -21,28 +24,36 @@
   }
 }
 
+.illustration-background {
+  @media bp-site {
+    background: linear-gradient(
+      90deg,
+      var(--primary-theme-background) 50%,
+      var(--wheat-theme-background) 50%
+    );
+  }
+}
+
 .container-illustration-wrap {
   margin: 0 auto;
-  width: 85%;
   @media bp-site {
-    position: relative;
     display: flex;
-    align-self: flex-end;
-    width: 100%;
-    height: calc(100vh - var(--header-height) - 100px);
-    padding-bottom: 60px;
+    width: 28%;
+    min-width: 360px;
+    height: calc(100vh - 200px);
+    min-height: 400px;
+    right: 0;
+    top: 0;
     background-color: var(--illustration-background);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    z-index: 1;
+    position: relative;
   }
 }
 
 .container-illustration {
-  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   @media bp-site {
-    width: 100%;
     > div {
       transform: translateX(-44%);
     }
@@ -52,17 +63,30 @@
   }
 }
 
-.container-logo {
+.container-logo-wrap {
+  background-color: var(--primary-theme-background);
+  padding-top: 50px;
   padding-bottom: 10px;
-  max-width: 400px;
+  width: 100%;
+  p {
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    margin: 0;
+  }
+  hr {
+    margin-bottom: 10px;
+  }
   @media bp-site {
+    max-width: 400px;
+    padding: 0;
     //Need to balance out with the CTA
     padding-top: 100px;
-    p {
-      font-size: 1.2em;
-    }
   }
   @media bp-extra-wide {
     max-width: 600px;
   }
+}
+
+.container-logo {
+  padding-bottom: 20px;
 }

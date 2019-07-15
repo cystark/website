@@ -2,10 +2,7 @@ import React from "react"
 import styles from "./styles.module.scss"
 
 class LogoHero extends React.Component {
-  constructor(props) {
-    super(props)
-    this.svgRef = React.createRef()
-  }
+  private svgRef = React.createRef<SVGSVGElement>()
 
   render() {
     return (

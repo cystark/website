@@ -8,3 +8,5 @@ export const wrapRootElement = wrapWithProvider
 const portal = document.createElement("div")
 portal.id = "modal-root"
 document.body.appendChild(portal)
+
+

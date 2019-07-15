@@ -1,10 +1,7 @@
 import React from "react"
 import styles from "./styles.module.scss"
 
-interface Props {
-  ratio: number
-  children?: any
-}
+type Props = { ratio: number; children?: any }
 
 const AspectRatio: React.FunctionComponent<Props> = ({ ratio, children }) => {
   const ratioPadding = {

@@ -1,3 +1,4 @@
+@value site as bp-site from '../../styles/breakpoints.scss';
 @value gtransition from '../../styles/animation.scss';
 
 .nav {
@@ -13,7 +14,7 @@
     line-height: 1;
     font-size: 1.2em;
     & svg {
-      width: 30px;
+      width: 22px;
       fill: var(--header-icon-color);
       color: var(--header-icon-secondary-color);
       transition: gtransition;
@@ -23,6 +24,10 @@
   &-link {
     color: var(--header-link-color);
     transition: gtransition;
+    font-size: 0.8em;
+    @media bp-site {
+      font-size: 0.9em;
+    }
     &:hover {
       color: var(--header-link-hover-color);
       svg {

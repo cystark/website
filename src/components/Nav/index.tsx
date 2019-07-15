@@ -2,48 +2,29 @@ import React from "react"
 import styles from "./styles.module.scss"
 import SiteData from "../../context/SiteData"
 import { Link } from "gatsby"
-import Button from "../Button"
 import inlineIcon from "../../utils/inlineIcon"
-import { connect } from "react-redux"
-import { toggleModal } from "../../state/actions"
+import ToggleModal from "../ToggleModal"
 
-interface Props {
-  className?: string
-}
-
-const Nav: React.FunctionComponent<Props> = ({
-  openModal,
-  dispatch,
-  className,
-}) => {
+const Nav: React.FunctionComponent = () => {
   return (
     <SiteData.Consumer>
-      {({ menuLinks, socialLinks }) => (
+      {({ menuLinks = [], socialLinks = {} }) => (
         <ul className={styles.nav}>
-          {menuLinks.map((link: any) => (
-            <li className={styles.navItem} key={link.link}>
+          {menuLinks.map((link: any, index) => (
+            <li className={styles.navItem} key={index}>
               <Link className={styles.navLink} to={link.link}>
                 {link.name}
               </Link>
             </li>
           ))}
           {Object.keys(socialLinks).map((social: string, i: number) => (
-            <li className={styles.navItem} key={i}>
+            <li className={styles.navItem} key={social}>
               {social == "email" ? (
-                <a
-                  className={styles.navLink}
-                  onClick={e => {
-                    e.preventDefault()
-                    dispatch(toggleModal(!openModal))
-                  }}
-                  href={socialLinks.email.link}
-                >
-                  {inlineIcon(social)}
-                </a>
+                <ToggleModal>{inlineIcon(social)}</ToggleModal>
               ) : (
                 <a
                   className={styles.navLink}
-                  href={socialLinks[social].link}
+                  href={socialLinks[social.toString()].link}
                   target="_blank"
                 >
                   {inlineIcon(social)}
@@ -57,7 +38,4 @@ const Nav: React.FunctionComponent<Props> = ({
   )
 }
 
-export default connect(
-  ({ openModal }) => ({ openModal }),
-  null
-)(Nav)
+export default Nav

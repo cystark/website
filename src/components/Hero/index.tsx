@@ -1,107 +1,134 @@
 import React from "react"
 import styles from "./styles.module.scss"
-import { illustration as illustrationAnimation } from "../../animations/timelines"
+import illustrationInitAnimation from "@animations/init"
+import illustrationDogAnimation from "@animations/dog"
+import illustrationFingersAnimation from "@animations/fingers"
 import withImageWrap from "../withImageWrap"
 
-import Illustration from "../Illustration"
-import LogoHero from "../LogoHero"
-import ContainerWrap from "../ContainerWrap"
-import Columns from "../Columns"
-import Column from "../Column"
-import Center from "../Center"
-import CTA from "../CTA"
-import SiteData from "../../context/SiteData"
+import Illustration from "@components/Illustration"
+import LogoHero from "@components/LogoHero"
+import ContainerWrap from "@components/ContainerWrap"
+import Columns from "@components/Columns"
+import Column from "@components/Column"
+import Title from "@components/Title"
+import Center from "@components/Center"
+import ToggleModal from "@components/ToggleModal"
+import HighlightPoint from "@components/HighlightPoint"
+import SiteData from "@context/SiteData"
+import { siteInit } from "@state/actions"
+import { AppState, AppActions, ConnectedReduxProps } from "@state/types"
 import { connect } from "react-redux"
-import { toggleModal } from "../../state/actions"
-
-const highlights = [
-  {
-    name: "Something",
-    src: "bronson.svg",
-    link: "google.com",
-    text: "something here",
-  },
-  {
-    name: "Sooomething",
-    src: "bronson.svg",
-    link: "google.com",
-    text: "sooomething is here my maaaang",
-  },
-]
-
-interface Props {
-  path?: string
-}
+import { capitalizeWord, getToday } from "@utils/helpers"
 
 const IllustrationWithImageWrap = withImageWrap(Illustration)
 const LogoHeroWithImageWrap = withImageWrap(LogoHero)
 
-class Hero extends React.Component {
-  constructor(props) {
+interface Props extends ConnectedReduxProps<AppActions> {
+  path?: string
+  subheading?: string
+  children?: any
+}
+
+type SVGProps = { svgRef: React.RefObject<any> }
+
+type AllProps = Props & AppState
+
+export class Hero extends React.Component<AllProps> {
+  illustrationRef: React.RefObject<any>
+  logoRef: React.RefObject<any>
+
+  constructor(props: any) {
     super(props)
     this.illustrationRef = React.createRef()
     this.logoRef = React.createRef()
   }
 
-  componentDidMount() {
-    const { svgRef } = this.illustrationRef.current
-    illustrationAnimation(svgRef.current)
+  async componentDidMount() {
+    const svgRef = this.illustrationRef.current
+    //Only strat once at when site inits
+    if (!this.props.siteInit && svgRef) {
+      await illustrationInitAnimation(svgRef.svgRef.current)
+      await Promise.all([
+        illustrationDogAnimation(svgRef.svgRef.current),
+        illustrationFingersAnimation(svgRef.svgRef.current),
+      ])
+      if (this.props.dispatch) {
+        await this.props.dispatch(siteInit(true))
+      }
+    }
   }
 
   render() {
-    const { dispatch, openModal } = this.props
+    const { subheading } = this.props
     return (
-      <SiteData.Consumer>
-        {({ description, location, socialLinks: { email } }) => (
-          <ContainerWrap>
-            <Columns>
-              <Column align="offsetLeft">
-                {location.pathname == "/" && (
+      <div className={styles.illustrationBackground}>
+        <ContainerWrap container="large" padding="none">
+          <Columns>
+            <Column className={styles.primaryBackground}>
+              <Center type="vertical">
+                <div className={styles.containerLogoWrap}>
+                  <SiteData.Consumer>
+                    {({ description, location }) =>
+                      location && location.pathname == "/" ? (
+                        <>
+                          <div className={styles.containerLogo}>
+                            <LogoHeroWithImageWrap
+                              ratio={285 / 500}
+                              ref={this.logoRef}
+                            />
+                          </div>
+                          <p>{description}</p>
+                          <hr />
+                          <HighlightPoint>
+                            <span>{getToday()}</span>
+                            <ToggleModal>
+                              Currently looking for job oppotunities
+                            </ToggleModal>
+                          </HighlightPoint>
+                        </>
+                      ) : (
+                        <>
+                          <Title size="huge">
+                            {location &&
+                              capitalizeWord(
+                                location.pathname.replace(/\//i, "")
+                              )}
+                          </Title>
+                          <hr />
+                          {subheading}
+                        </>
+                      )
+                    }
+                  </SiteData.Consumer>
+                </div>
+              </Center>
+            </Column>
+            <Column desktop="oneThird">
+              <div className={styles.containerIllustrationWrap}>
+                <div className={styles.containerIllustration}>
                   <Center type="vertical">
-                    <div className={styles.containerLogo}>
-                      <LogoHeroWithImageWrap
-                        ratio={285 / 500}
-                        ref={this.logoRef}
-                      />
-                      <hr />
-                      <p>{description}</p>
-                      <CTA>
-                        June 1. Currently looking for job oppotunities. Contact
-                        me{" "}
-                        <a
-                          href={email.link}
-                          onClick={event => {
-                            event.preventDefault()
-                            dispatch(toggleModal(!openModal))
-                          }}
-                        >
-                          here
-                        </a>{" "}
-                        .
-                      </CTA>
-                    </div>
-                  </Center>
-                )}
-              </Column>
-              <Column desktop="oneThird" theme="wheat">
-                <div className={styles.containerIllustrationWrap}>
-                  <div className={styles.containerIllustration}>
                     <IllustrationWithImageWrap
                       ratio={542 / 600}
                       ref={this.illustrationRef}
                     />
-                  </div>
+                  </Center>
                 </div>
-              </Column>
-            </Columns>
-          </ContainerWrap>
-        )}
-      </SiteData.Consumer>
+              </div>
+            </Column>
+          </Columns>
+        </ContainerWrap>
+      </div>
     )
   }
 }
 
+const mapStateToProps = (state: AppState) => ({
+  siteInit: state.siteInit,
+})
+
+const mapDispatchToProps = null
+
 export default connect(
-  ({ openModal }) => ({ openModal }),
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(Hero)

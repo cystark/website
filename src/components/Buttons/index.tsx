@@ -1,27 +1,27 @@
 import React from "react"
 import styles from "./styles.module.scss"
-import { joinFilter, capitalizeWord } from "../../utils/helpers"
+import { joinFilter, capitalizeWord } from "@utils/helpers"
 
 interface Props {
-  className: string
-  align: string
-  style: object
+  className?: string
+  children: any
+  align?: string
 }
 
-const Buttons: React.FunctionComponent<Props> = ({
+const Buttons: React.SFC<Props> = ({
   children,
   className,
-  align,
-  style,
+  align = "center",
+  ...props
 }) => {
   const styleOptions = [
-    className,
+    className ? className : "",
     styles.buttons,
     align ? styles[`align${capitalizeWord(align)}`] : "",
   ]
 
   return (
-    <div className={joinFilter(styleOptions)} style={style}>
+    <div {...props} className={joinFilter(styleOptions)}>
       {children}
     </div>
   )

@@ -1,23 +1,71 @@
 @value site as bp-site from '../../styles/breakpoints.scss';
+@value site as bp-site from '../../styles/breakpoints.scss';
 @value columnHalfGutter from '../Columns/styles.module.scss';
 
 .container {
   border: 1px solid black;
-  padding: 2em;
+  padding: 3em 4em 4em;
   position: relative;
-  padding-right: calc(60px + 2em);
   &::after {
     content: "";
-    width: 60px;
-    height: 100%;
+    width: 0;
+    height: 0;
+    border-top: 50px solid #ece0c5;
+    border-right: 50px solid transparent;
     position: absolute;
-    right: 0;
-    top: 0;
-    background-color: #ece0c5;
+    left: 2px;
+    top: 2px;
   }
-  h4 {
-    padding-bottom: 5px;
-    border-bottom: 1px solid gray;
-    margin-bottom: 10px;
+}
+
+.link {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  z-index: 2;
+  &:hover {
+    span {
+      border-color: transparent;
+      background-color: var(--link-hover-color);
+    }
   }
+}
+
+.title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+  a {
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+}
+
+.label {
+  color: #7d7d7d;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1rem;
+  padding-left: 0.75em;
+  padding-top: calc(0.375em - 1px);
+  padding-bottom: calc(0.375em - 1px);
+  padding-right: 0.75em;
+}
+
+.more {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }

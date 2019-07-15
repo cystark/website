@@ -3,26 +3,26 @@ import styles from "./styles.module.scss"
 import { capitalizeWord, joinFilter } from "../../utils/helpers"
 
 interface Props {
-  className: string
-  type: string
-  style: string
+  className?: string
+  type?: string
+  mobile?: string
 }
 
-const Center: React.FunctionComponent<Props & paddingOptions> = ({
+const Center: React.FunctionComponent<Props> = ({
   children,
   className,
   type = "center",
   mobile = "center",
-  style,
+  ...props
 }) => {
   const styleOptions = [
     type ? styles[type] : "",
-    className,
+    className ? className : "",
     mobile ? styles[`mobile${capitalizeWord(mobile)}`] : "",
   ]
 
   return (
-    <div className={joinFilter(styleOptions)} style={style}>
+    <div {...props} className={joinFilter(styleOptions)}>
       {children}
     </div>
   )
