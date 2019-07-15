@@ -16,6 +16,6 @@ before_script:
   - "npm i -g gatsby"
   - "npm i"
 script:
-  - "jest --verbose"
+  - "jest --verbose -u"
 after_success:
   - "npm run deploy"

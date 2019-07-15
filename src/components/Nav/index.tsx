@@ -10,8 +10,8 @@ const Nav: React.FunctionComponent = () => {
     <SiteData.Consumer>
       {({ menuLinks = [], socialLinks = {} }) => (
         <ul className={styles.nav}>
-          {menuLinks.map((link: any) => (
-            <li className={styles.navItem} key={link.link}>
+          {menuLinks.map((link: any, index) => (
+            <li className={styles.navItem} key={index}>
               <Link className={styles.navLink} to={link.link}>
                 {link.name}
               </Link>

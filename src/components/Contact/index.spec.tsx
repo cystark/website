@@ -8,7 +8,7 @@ import SiteData, { MockSiteData } from "@context/SiteData"
 const mockStore = configureMockStore()
 const store = mockStore({ openModal: false, siteInit: false })
 
-describe("Concact", () => {
+describe("Contact", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
