@@ -46,7 +46,7 @@ class Modal extends React.Component<AllProps, IState> {
   }
 
   componentWillUnmount() {
-    if (modalRoot) {
+    if (modalRoot && this.DivElement) {
       modalRoot.removeChild(this.DivElement)
     }
   }
