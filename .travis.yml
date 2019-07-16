@@ -1,18 +1,20 @@
 language: node_js
-node_js:
-  - "stable"
+node_js: node
 cache:
   directories:
-  - node_modules
+    - node_modules
+script:
+  - npm test
+env:
+  - CI=true
+
+before_deploy:
+  - npm install netlify-cli -g
+  - npm run build
+
 deploy:
   provider: script
-  script: chmod +x ./scripts/publish.sh && ./scripts/publish.sh
+  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  skip_cleanup: true
   on:
     branch: master
-before_script:
-  - "npm i -g gatsby"
-  - "npm i"
-script:
-  - "jest --verbose -u"
-after_success:
-  - "npm run deploy"
