@@ -44,18 +44,24 @@ export class Hero extends React.Component<AllProps> {
   }
 
   async componentDidMount() {
+    if (this.props.dispatch) {
+      await this.props.dispatch(siteInit(true))
+    }
     const svgRef = this.illustrationRef.current
-    //Only strat once at when site inits
-    if (!this.props.siteInit && svgRef) {
+
+    if (svgRef) {
+      //Show the actors only on page load
+      const actors = await svgRef.svgRef.current.getElementById("actors")
+      actors.style.opacity = 1
+
+      //Init animation
       await illustrationInitAnimation(svgRef.svgRef.current)
-      if (isMobile()) {
+      //Having problems with dog animation on mobile
+      if (!isMobile()) {
         await Promise.all([
           illustrationDogAnimation(svgRef.svgRef.current),
           illustrationFingersAnimation(svgRef.svgRef.current),
         ])
-      }
-      if (this.props.dispatch) {
-        await this.props.dispatch(siteInit(true))
       }
     }
   }
@@ -84,7 +90,9 @@ export class Hero extends React.Component<AllProps> {
                           <HighlightPoint>
                             <span>{getToday()}</span>
                             <ToggleModal>
-                              Currently looking for job oppotunities
+                              {isMobile()
+                                ? "Currently for work"
+                                : "Currently looking for job oppotunities"}
                             </ToggleModal>
                           </HighlightPoint>
                         </>

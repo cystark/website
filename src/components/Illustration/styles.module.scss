@@ -1,4 +1,5 @@
-@value site as bp-site from '../../styles/breakpoints.scss';
+@value site as bp-site from '@styles/breakpoints.scss';
+@value gtransition from '@styles/animation.scss';
 
 .bg {
   fill: #d7d9da;
@@ -21,6 +22,11 @@
   @media bp-site {
     fill: #ece0c5;
   }
+}
+
+.actors {
+  opacity: 0;
+  transition: gtransition;
 }
 
 .illustration {

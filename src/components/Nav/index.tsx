@@ -20,7 +20,9 @@ const Nav: React.FunctionComponent = () => {
           {Object.keys(socialLinks).map((social: string, i: number) => (
             <li className={styles.navItem} key={social}>
               {social == "email" ? (
-                <ToggleModal>{inlineIcon(social)}</ToggleModal>
+                <ToggleModal className={styles.navLink}>
+                  {inlineIcon(social)}
+                </ToggleModal>
               ) : (
                 <a
                   className={styles.navLink}

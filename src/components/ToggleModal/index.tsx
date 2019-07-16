@@ -6,16 +6,18 @@ import { AppState, AppActions, ConnectedReduxProps } from "@state/types"
 
 interface Props extends ConnectedReduxProps<AppActions> {
   children?: any
+  className?: string
 }
 
 type AllProps = Props & AppState
 
 const ToggleModal: React.FunctionComponent<AllProps> = props => {
-  const { dispatch, openModal, children } = props
+  const { dispatch, openModal, children, ...rest } = props
   return (
     <SiteData.Consumer>
       {({ socialLinks = {} }) => (
         <a
+          {...rest}
           onClick={e => {
             e.preventDefault()
             //Could be a better way to do this

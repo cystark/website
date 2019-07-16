@@ -1,10 +1,12 @@
 @value site as bp-site from '../../styles/breakpoints.scss';
-@value site as bp-site from '../../styles/breakpoints.scss';
 @value columnHalfGutter from '../Columns/styles.module.scss';
 
 .container {
   border: 1px solid black;
-  padding: 3em 4em 4em;
+  padding: 3em 2em 4em;
+  @media bp-site {
+    padding: 3em 4em 4em;
+  }
   position: relative;
   &::after {
     content: "";

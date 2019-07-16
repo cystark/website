@@ -18,10 +18,13 @@ const getToday = () => {
 }
 
 const isMobile = (): boolean | null => {
-  if (typeof window !== undefined) {
-    return window.innerWidth > 800
-  }
-  return null
+  return typeof window !== `undefined` ? window.innerWidth < 800 : null
+}
+
+const encode = (data: any) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 export { delay, capitalizeWord, joinFilter, getToday, isMobile }

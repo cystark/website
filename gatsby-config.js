@@ -6,11 +6,8 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-offline",
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-sass",
     "gatsby-plugin-typescript",
-    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -28,28 +25,6 @@ module.exports = {
         google: {
           families: ["Oswald", "Lato", "Cabin Condensed"],
         },
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 970,
-            },
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_blank",
-              rel: "nofollow",
-            },
-          },
-          "gatsby-remark-grid-tables",
-          "gatsby-remark-copy-linked-files",
-        ],
       },
     },
     {
