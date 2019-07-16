@@ -18,15 +18,30 @@ interface iState {
   [name: string]: string
 }
 
+const encode = (data: any) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 class NetlifyForm extends React.Component<iProps, iState> {
   state = store.get("cystark.userData") || {}
   formRef = React.createRef<HTMLFormElement>()
 
   handleSubmit = (event: React.FormEvent<EventTarget>) => {
-    setTimeout(() => {
-      this.setState({ name: "", email: "", message: "" })
-      this.formRef.current!.reset()
-    }, 1000)
+    event.preventDefault()
+    const encodedData = encode({ "form-name": "contact", ...this.state })
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodedData,
+    })
+      .then(response => {
+        console.log("====================================")
+        console.log(`${JSON.stringify(response, null, 2)}`)
+        console.log("====================================")
+      })
+      .catch(error => alert(error))
   }
 
   handleUpdate = (
@@ -52,11 +67,15 @@ class NetlifyForm extends React.Component<iProps, iState> {
             </Title>
             <form
               ref={this.formRef}
+              method="POST"
               name="contact"
               data-netlify={true}
+              data-netlify-honeypot="bot-field"
               className={styles.themePrimary}
               onSubmit={this.handleSubmit}
             >
+              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="form-name" value="contact" />
               <p>
                 <label className={styles.label}>
                   Name{" "}

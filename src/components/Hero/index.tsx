@@ -18,7 +18,7 @@ import SiteData from "@context/SiteData"
 import { siteInit } from "@state/actions"
 import { AppState, AppActions, ConnectedReduxProps } from "@state/types"
 import { connect } from "react-redux"
-import { capitalizeWord, getToday } from "@utils/helpers"
+import { capitalizeWord, getToday, isMobile } from "@utils/helpers"
 
 const IllustrationWithImageWrap = withImageWrap(Illustration)
 const LogoHeroWithImageWrap = withImageWrap(LogoHero)
@@ -48,10 +48,12 @@ export class Hero extends React.Component<AllProps> {
     //Only strat once at when site inits
     if (!this.props.siteInit && svgRef) {
       await illustrationInitAnimation(svgRef.svgRef.current)
-      await Promise.all([
-        illustrationDogAnimation(svgRef.svgRef.current),
-        illustrationFingersAnimation(svgRef.svgRef.current),
-      ])
+      if (isMobile()) {
+        await Promise.all([
+          illustrationDogAnimation(svgRef.svgRef.current),
+          illustrationFingersAnimation(svgRef.svgRef.current),
+        ])
+      }
       if (this.props.dispatch) {
         await this.props.dispatch(siteInit(true))
       }

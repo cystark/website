@@ -17,4 +17,11 @@ const getToday = () => {
   return `${date.getDate()}/${date.getMonth() + 1}`
 }
 
-export { delay, capitalizeWord, joinFilter, getToday }
+const isMobile = (): boolean | null => {
+  if (typeof window !== undefined) {
+    return window.innerWidth > 800
+  }
+  return null
+}
+
+export { delay, capitalizeWord, joinFilter, getToday, isMobile }

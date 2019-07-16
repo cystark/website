@@ -28,7 +28,17 @@ const dog = async (node: SVGSVGElement) => {
         },
         1
       )
-      .to(dog, 0.1, { rotation: 20, scaleX: -1, transformOrigin: "50% 50%" }, 1)
+      .to(
+        dog,
+        0.1,
+        {
+          rotation: 20,
+          scaleY: 1,
+          scaleX: -1,
+          transformOrigin: "50% 50%",
+        },
+        1
+      )
       .to(
         dog,
         1,
@@ -50,7 +60,12 @@ const dog = async (node: SVGSVGElement) => {
       .to(
         dog,
         0.1,
-        { rotation: "-=20", scaleX: 1, transformOrigin: "50% 50%" },
+        {
+          rotation: "-=20",
+          scaleX: 1,
+          scaleY: 1,
+          transformOrigin: "50% 50%",
+        },
         3
       )
       .play()
