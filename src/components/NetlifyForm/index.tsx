@@ -23,9 +23,10 @@ class NetlifyForm extends React.Component<iProps, iState> {
   formRef = React.createRef<HTMLFormElement>()
 
   handleSubmit = (event: React.FormEvent<EventTarget>) => {
-    event.preventDefault()
-    this.setState({ name: "", email: "", message: "" })
-    this.formRef.current!.reset()
+    setTimeout(() => {
+      this.setState({ name: "", email: "", message: "" })
+      this.formRef.current!.reset()
+    }, 1000)
   }
 
   handleUpdate = (
