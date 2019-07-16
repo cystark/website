@@ -4,7 +4,7 @@ cache:
   directories:
     - node_modules
 script:
-  - npm test -u
+  - "jest --verbose -u"
 env:
   - CI=true
 
@@ -14,7 +14,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./public
   skip_cleanup: true
   on:
     branch: master
