@@ -1,13 +1,20 @@
-#!/usr/bin/env bash
+language: node_js
+node_js: node
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+env:
+  - CI=true
 
-# die on error
-set -e
+before_deploy:
+  - npm install netlify-cli -g
+  - npm run build
 
-# https://gist.github.com/cjus/1047794
-echo 'Retrieving latest deploy...'
-url=`curl -H "Authorization: Bearer $NETLIFY_CLIENT_ID" https://api.netlify.com/api/v1/sites/cystark.com.au/deploys`
-temp=`echo $url | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w -m 1 'id'`
-
-# https://open-api.netlify.com/#/default/lockDeploy
-echo "Locking deploy to ${temp##*|}..."
-curl -X POST -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" -d "{}" "https://api.netlify.com/api/v1/deploys/${temp##*|}/lock"
+deploy:
+  provider: script
+  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./public
+  skip_cleanup: true
+  on:
+    branch: master
