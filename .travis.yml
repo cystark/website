@@ -13,6 +13,7 @@ cache:
 
 script:
   - "yarn run test:jest:ci"
+  - "cypress install"
   - "yarn run test:e2e:ci"
 env:
   - CI=true
