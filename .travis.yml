@@ -5,6 +5,7 @@ cache:
     - node_modules
 script:
   - "jest --verbose -u"
+  - "cypress run"
 env:
   - CI=true
 
