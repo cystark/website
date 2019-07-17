@@ -1,8 +1,16 @@
 language: node_js
 node_js: node
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
 cache:
   directories:
     - node_modules
+  overides:
+    - npm ci
+    - npm run cy:verify
+
 script:
   - "jest --verbose -u"
   - "cypress run"
