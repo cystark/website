@@ -13,6 +13,7 @@ cache:
 
 script:
   - "jest --verbose -u"
+  - "gatsby develop"
   - "cypress install"
   - "cypress run"
 env:
