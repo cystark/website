@@ -6,28 +6,25 @@ addons:
     - libgconf-2-4
 cache:
   directories:
-    - node_modules
+  - node_modules
   overides:
-    - npm ci
-    - npm run cy:verify
-
+  - npm ci
+  - npm run cy:verify
 script:
-  - "yarn run test:jest:ci"
-  - "cypress install"
-  - "yarn run test:e2e:ci"
+- yarn run test:jest:ci
+- cypress install
+- yarn run test:e2e:ci
 env:
-  - CI=true
-
+- CI=true
 before_deploy:
-  - npm install netlify-cli -g
-  - npm run build
+- npm install netlify-cli -g
+- npm run build
 deploy:
   provider: script
-  # Note you will need the following env variables 
-  # NETLIFY_SITE_ID NETLIFY_AUTH_TOKEN
-  script: netlify deploy -s $NETLIFY_SITE_ID 
+  script: netlify deploy -s $NETLIFY_SITE_ID
   skip_cleanup: true
   on:
     branch: master
 notifications:
-  slack: $SLACK_PROJECT:$TRAVIS_ACCESS_TOKEN
+  slack:
+    secure: fON5bHtcah/muy+eF3isg7D20Ej0Hki6mBR05hXSDu5/YfjQ2HpS6cm0Udz8YZ8hGQttlNgP0zWR9Op2skqR/IBt7FXyxOGClBhMoAUYKfKtiBAQNkqkED1s1eN1bXCQ4AbW1wOB7d7njDl29FY87envtNAG4u1L1qAx50PIGGMfBdNiqA0KX1RCuC/5cYUY/6lB8Q+QUZVgMV48QldB9gRaImtq2p7e/s5VNP5VeCRmSv+03GnEsW1xxY41EAKiIdAk/a/PUee0bKcqID2gitfMJQapzGyWB6u9iybghaOnkY5YIUHtBHak7q8AGfH7rUxxuQa5y3hxYflVwuHdT9PdI3MQlgkyuRVO6lH8aWkhQERlGh9tOZEJycPx0pJSTCa6qXjNU3DddwB6vqJCjCquUkx86gNMpeOonTb0e3oV4WKDWlwoFFPjSPLWSf1hbG2etOBfswU21nxJL3JDcYEymH9jSh2XGtCBi8knC3IhfITXdf863ZL/hI4fnmTxDstoWIy5kl/cAvu3x1H2qopxBiwJvfS4/Y1heJ4W9H9x/aXNU1tImK4x8RIghOkPURUOTqY14u5i52f8YO8OJgkw97zXzdiNHNM4RPioPM3P2vQtw34bDHWjH4tfyn1M5XbgILj9GFBIyKij8q8g0ahBB6B6RroZXh7/dlqgAwc=
