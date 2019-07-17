@@ -17,8 +17,8 @@ const getToday = () => {
   return `${date.getDate()}/${date.getMonth() + 1}`
 }
 
-const isMobile = (): boolean | null => {
-  return typeof window !== `undefined` ? window.innerWidth < 800 : null
+const isMobile = (width = 800): boolean | null => {
+  return typeof window !== `undefined` ? window.innerWidth < width : null
 }
 
 const encode = (data: any) => {

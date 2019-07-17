@@ -1,4 +1,5 @@
 @value site as bp-site from '../../styles/breakpoints.scss';
+@value medium as bp-medium from '../../styles/breakpoints.scss';
 
 @value padding: '../../styles/padding.module.scss';
 @value gutter from padding;
@@ -50,8 +51,12 @@
 }
 
 .size-normal {
-  font-size: 1.6em;
-  line-height: 2.2;
+  font-size: 1.2em;
+  line-height: 3.2;
+  @media bp-medium {
+    font-size: 1.6em;
+    line-height: 2.2;
+  }
   @media bp-site {
     font-size: 1.8em;
     line-height: 2;
