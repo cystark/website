@@ -13,6 +13,7 @@ cache:
 
 script:
   - "jest --verbose -u"
+  - "cypress install"
   - "cypress run"
 env:
   - CI=true
