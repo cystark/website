@@ -12,8 +12,8 @@ cache:
     - npm run cy:verify
 
 script:
-  - "jest --verbose -u"
-  - "test:e2e:ci"
+  - "yarn run test:jest:ci"
+  - "yarn run test:e2e:ci"
 env:
   - CI=true
 
