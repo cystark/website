@@ -88,8 +88,9 @@ export class Hero extends React.Component<AllProps> {
                           <p>{description}</p>
                           <hr />
                           <HighlightPoint>
-                            <span>{getToday()}</span>
-                            <span>Currently working at Portable</span>
+                            <a href="https://portable.com.au" target="_blank">
+                              Currently working at Portable
+                            </a>
                           </HighlightPoint>
                         </>
                       ) : (
