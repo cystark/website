@@ -89,11 +89,7 @@ export class Hero extends React.Component<AllProps> {
                           <hr />
                           <HighlightPoint>
                             <span>{getToday()}</span>
-                            <ToggleModal>
-                              {isMobile(400)
-                                ? "Looking for work"
-                                : "Currently looking for job oppotunities"}
-                            </ToggleModal>
+                            <span>Currently working at Portable</span>
                           </HighlightPoint>
                         </>
                       ) : (
