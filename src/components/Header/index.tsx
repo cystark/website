@@ -7,7 +7,11 @@ import Nav from "../Nav"
 const Header: React.StatelessComponent = () => {
   return (
     <nav className={styles.container}>
-      <ContainerWrap className={styles.content} container={"wide"}>
+      <ContainerWrap
+        className={styles.content}
+        container={"wide"}
+        padding={"small"}
+      >
         <Logo />
         <Nav />
       </ContainerWrap>

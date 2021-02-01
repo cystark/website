@@ -21,6 +21,7 @@ const ContainerWrap: React.StatelessComponent<
   textAlign = "left",
   padding = "small",
   children,
+  ...rest
 }) => {
   const containerStyle = container || "container"
 
@@ -32,7 +33,11 @@ const ContainerWrap: React.StatelessComponent<
     padding ? paddingStyle[padding] : "",
   ]
 
-  return <div className={joinFilter(styleOptions)}>{children}</div>
+  return (
+    <div {...rest} className={joinFilter(styleOptions)}>
+      {children}
+    </div>
+  )
 }
 
 export default ContainerWrap
