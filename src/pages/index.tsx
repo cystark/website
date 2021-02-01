@@ -126,7 +126,10 @@ export const IndexPage: React.SFC<Props> = ({ location }) => {
                       <p>
                         Worked on animating 24 Digital colleagues Gatsby
                         portfolio using GSAP and{" "}
-                        <a href="transitionlink.tylerbarnes.ca" target="_blank">
+                        <a
+                          href="https://transitionlink.tylerbarnes.ca"
+                          target="_blank"
+                        >
                           TransitionLinks
                         </a>
                         .
